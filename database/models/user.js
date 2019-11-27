@@ -2,13 +2,18 @@ module.exports = function(sequelize, dataTypes) {
   const User = sequelize.define("User", {
     name: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     photo: {
       type: dataTypes.STRING
     },
     pass: {
-      type: dataTypes.STRING
+      type: dataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5, 50]
+      }
     }
   });
   User.associate = function(models) {
