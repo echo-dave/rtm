@@ -12,9 +12,9 @@ module.exports = function(sequelize, dataTypes) {
     }
   });
   User.associate = function(models) {
-    User.hasMany(models.Media, {
-      onDelete: "cascade"
-    });
+    User.hasMany(models.Media);
+    User.hasMany(models.Review);
+    User.hasMany(models.Trail);
   };
   return User;
 };

@@ -12,9 +12,6 @@ module.exports = function(sequelize, dataTypes) {
       type: dataTypes.STRING
     }
   });
-  Media.associate = function(models) {
-    Media.belongsTo(models.User);
-  };
 
   return Media;
 };
