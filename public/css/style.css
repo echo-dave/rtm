@@ -1,0 +1,33 @@
+.navbar-brand {
+  font-family: "Rock Salt", cursive;
+}
+body {
+  background-image: url("../images/background.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+.jumbotron {
+  opacity: 0.9;
+  text-align: center;
+}
+
+.display-4 {
+  font-family: "Rock Salt", cursive;
+}
+
+.card {
+  text-align: center;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.card-header {
+  font-family: "Rock Salt", cursive;
+  font-weight: bolder;
+}
