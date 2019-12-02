@@ -3761,7 +3761,7 @@ a.tag:hover {
 }
 .is-inline.textarea, .is-inline.input {
   display: inline;
-  width: auto;
+  
 }
 
 .input.is-rounded {
@@ -5334,7 +5334,6 @@ a.list-item {
   flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
-  -ms-overflow-y: visible;
 }
 
 .modal-card-head,

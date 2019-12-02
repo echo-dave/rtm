@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ride the Mountain Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap"
       rel="stylesheet"
@@ -40,9 +41,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Sign In <span class="sr-only">(current)</span></a
-            >
+            <button type="button" class="btn signin">
+              Sign In
+            </button>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#"
@@ -129,6 +130,49 @@
           </blockquote>
         </div>
       </div>
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </div>
+    <footer class="page-footer">
+      <div class="footer-copyright text-center py-3">
+        © Copyright Purple Team
+      </div>
+    </footer>
   </body>
+  <script type="text/javascript">
+    $(".signin").click(function() {
+      $(".modal").addClass("is-active");
+    });
+
+    $(".modal-close").click(function() {
+      $(".modal").removeClass("is-active");
+    });
+  </script>
 </html>

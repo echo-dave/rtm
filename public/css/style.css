@@ -31,3 +31,11 @@ body {
   font-family: "Rock Salt", cursive;
   font-weight: bolder;
 }
+
+.page-footer {
+  color: white;
+}
+
+.signin {
+  color: white;
+}
