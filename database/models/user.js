@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 module.exports = function(sequelize, dataTypes) {
   const User = sequelize.define("User", {
     name: {
@@ -16,6 +17,14 @@ module.exports = function(sequelize, dataTypes) {
       }
     }
   });
+
+  User.beforeCreate(user => {
+    const saltRounds = 10;
+    return bcrypt.hash(user.pass, saltRounds).then(hashedPw => {
+      user.pass = hashedPw;
+    });
+  });
+
   User.associate = function(models) {
     User.hasMany(models.Media);
     User.hasMany(models.Review);
