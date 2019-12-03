@@ -1,5 +1,6 @@
 const db = require("../database/models");
-const auth = require("../nodejs/auth");
+const path = require('path');
+
 module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll().then(function (data) {
@@ -42,7 +43,7 @@ module.exports = function (app) {
     console.log('file upoad route--------------------');
 
     console.log(req.files); // the uploaded file object
-    req.files.photo.mv(__dirname + '/upload/' + req.files.photo.name, function (err) {
+    req.files.photo.mv(path.join(__dirname, '../public/upload', req.files.photo.name), function (err) {
       if (err) {
         console.log(err);
         res.send(err);
