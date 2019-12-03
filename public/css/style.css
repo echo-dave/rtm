@@ -1,15 +1,21 @@
 .navbar-brand {
   font-family: "Rock Salt", cursive;
 }
+html,
 body {
+  min-height: 100vh;
+  margin: 0;
+}
+.body {
   background-image: url("../images/background.jpg");
-  min-height: 500px;
+  min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 .jumbotron {
   opacity: 0.9;
@@ -37,4 +43,22 @@ body {
 
 .signin {
   color: white;
+}
+
+.container404 {
+  max-width: 960px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.container404 .columns {
+  height: 100vh;
+}
+
+.container404 .column {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.75);
+  margin: 2em;
+}
+.container404 button {
+  margin: 1em;
 }
