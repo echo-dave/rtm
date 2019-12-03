@@ -14,15 +14,16 @@ $('form').on('submit', function (event) {
     // see if pass word fields match
     if ($('input[name=pass').val() == $('input[name=passTest]').val()) {
         console.log('true and posting');
-        const inputs = $(this).find($('input'))
+        //build array of object key value pairs excluding passTest
+        const inputs = $('input[name!=passTest]').serializeArray();
         console.log('inputs');
         console.log(inputs);
 
+        $.post('/api/auth/newuser', inputs, function (res) {
+            console.log(res);
 
-        const obj = {};
+        })
 
-        inputs.forEach(el => obj[el.name] = el.value())
-        console.log(inputs);
 
 
 
