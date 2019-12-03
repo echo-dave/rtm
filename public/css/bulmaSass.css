@@ -1062,7 +1062,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 }
 
 .is-family-secondary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: "Rock Salt", cursive !important;
 }
 
 .is-family-sans-serif {
@@ -3761,7 +3761,7 @@ a.tag:hover {
 }
 .is-inline.textarea, .is-inline.input {
   display: inline;
-  
+  width: auto;
 }
 
 .input.is-rounded {
@@ -5334,6 +5334,7 @@ a.list-item {
   flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
+  -ms-overflow-y: visible;
 }
 
 .modal-card-head,
@@ -9339,4 +9340,34 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
-/*# sourceMappingURL=bulmsSass.css.map */
+h1,
+h2,
+h3 {
+  margin: 1em;
+}
+
+.card-header {
+  padding: 0.5em 0 0.5em 0.5em;
+}
+
+.is-heading-box {
+  border-radius: 0 0 6px 6px;
+}
+
+.is-sidebar {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.is-sidebar .card,
+.is-sidebar .columns .column {
+  margin: 0;
+}
+
+.is-sidebar .column {
+  box-sizing: border-box;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/*# sourceMappingURL=bulmaSass.css.map */
