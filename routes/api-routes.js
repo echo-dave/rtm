@@ -42,7 +42,17 @@ module.exports = function (app) {
     console.log('file upoad route--------------------');
 
     console.log(req.files); // the uploaded file object
-    res.json();
+    req.files.photo.mv(__dirname + '/upload/' + req.files.photo.name, function (err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+
+      } else {
+        console.log('upload success');
+        res.send('upload sucess');
+      }
+    })
+    // res.json();
 
   });
 
