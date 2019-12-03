@@ -8,11 +8,16 @@ module.exports = function (app) {
   });
   app.post("/api/auth/newuser", function (req, res) {
     console.log(req.body);
+    console.log('file--------------file');
+
+    console.log(req.files);
+    console.log('create--------------create');
+
     db.User.create(req.body).then(function (data) {
       console.log(data);
       res.send('success');
     });
-    res.json();
+    //res.json();
   });
   app.post('/api/auth/login', function (req, res) {
     console.log(req.body);
@@ -32,5 +37,13 @@ module.exports = function (app) {
 
     })
   })
+
+  app.post('/upload', function (req, res) {
+    console.log('file upoad route--------------------');
+
+    console.log(req.files); // the uploaded file object
+    res.json();
+
+  });
 
 };

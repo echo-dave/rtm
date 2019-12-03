@@ -15,10 +15,12 @@
 
 <body>
 
-    <form id="signUpForm" action="">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column">
+    <div class="container is-paddings-2">
+
+        <div class="columns is-centered">
+            <div class="column">
+                <form id="signUpForm" action="">
+
                     <div class="field">
                         <label class="label" for="name">Name</label>
                         <div class="control">
@@ -37,19 +39,27 @@
                             <input class="input" name="passTest" type="password" placeholder="" required>
                         </div>
                     </div>
-                    <div class="field">
-                        <label class="label" for="photo">Photo</label>
-                        <div class="control">
-                            <input class="input" name="photo" type="file">
+                    <form id=formUploader method="POST" action="/upload" enctype="multipart/form-data">
+
+                        <div class="field">
+                            <label class="label" for="photo">Photo</label>
+                            <div class="control">
+                                <input class="input" name="photo" type="file">
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="field">
                         <label class="label" for="">&nbsp;</label>
                         <div class="control">
-                            <button class="input button is-primary" name="makeNewUser" type='submit'>Signup</button>
+                            <button class="button is-primary" name="makeNewUser" value="Upload!"
+                                type='submit'>Signup</button>
                         </div>
                     </div>
-    </form>
+                </form>
+
+            </div>
+        </div>
+    </div>
 
     <script src="js/auth.js"></script>
 
