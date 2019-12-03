@@ -6,7 +6,7 @@ $('input').focus(function () {
         $(this).val('');
     }
 })
-$('form').on('submit', function (event) {
+$('#signUpForm').on('submit', function (event) {
 
     event.preventDefault();
     //remove input focus
@@ -21,15 +21,19 @@ $('form').on('submit', function (event) {
 
         $.post('/api/auth/newuser', inputs, function (res) {
             console.log(res);
-
         })
-
-
-
-
     } else {
         $('label[for=passTest').before(`<span id="pwdErr"> Password mismatch</span>`)
     }
 
 })
 
+$('#loginForm').on('submit', function (event) {
+    event.preventDefault();
+    console.log($(this).serialize());
+
+    $.post('/api/auth/login', $(this).serialize(), function (res) {
+        console.log(res);
+
+    })
+})
