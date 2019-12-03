@@ -18,12 +18,23 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
-.is-sidebar .card,
-.is-sidebar .columns .column {
-  margin: 0;
+
+.is-sidebar {
+  .card,
+  .columns,
+  .column {
+    margin: 0;
+  }
+  .column {
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
-.is-sidebar .column {
-  box-sizing: border-box;
-  padding-top: 0;
-  padding-bottom: 0;
+.is-paddings-2 {
+  padding: 2rem;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto 1rem;
 }

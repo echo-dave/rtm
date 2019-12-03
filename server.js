@@ -3,12 +3,15 @@ const db = require("./database/models");
 //check environment
 const env = process.env.NODE_ENV || "development";
 
+const fileUpload = require('express-fileupload');
+
 //express
 const express = require("express");
 const app = express();
 PORT = process.env.PORT || 8080;
 
 //middleware
+app.use(fileUpload());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

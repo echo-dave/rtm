@@ -6,15 +6,25 @@ $('input').focus(function () {
         $(this).val('');
     }
 })
-$('#signUpForm').on('submit', function (event) {
+$('button[name=makeNewUser]').on('click', function (event) {
 
-    event.preventDefault();
+    // event.preventDefault();
     //remove input focus
     $('input').blur();
     // see if pass word fields match
     if ($('input[name=pass').val() == $('input[name=passTest]').val()) {
         console.log('true and posting');
         //build array of object key value pairs excluding passTest
+        let fileUpload = $('input[type=file]').val()
+        console.log(fileUpload);
+
+        $.post('/upload', fileUpload, function (data) {
+            console.log('upload response');
+            console.log(data);
+
+
+        })
+
         const inputs = $('input[name!=passTest]').serializeArray();
         console.log('inputs');
         console.log(inputs);

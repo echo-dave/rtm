@@ -1,5 +1,6 @@
 const db = require("../database/models");
-const auth = require("../nodejs/auth");
+const path = require('path');
+
 module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll().then(function (data) {
@@ -8,11 +9,16 @@ module.exports = function (app) {
   });
   app.post("/api/auth/newuser", function (req, res) {
     console.log(req.body);
+    console.log('file--------------file');
+
+    console.log(req.files);
+    console.log('create--------------create');
+
     db.User.create(req.body).then(function (data) {
       console.log(data);
       res.send('success');
     });
-    res.json();
+    //res.json();
   });
   app.post('/api/auth/login', function (req, res) {
     console.log(req.body);
@@ -32,5 +38,26 @@ module.exports = function (app) {
 
     })
   })
+
+  app.post('/upload', function (req, res) {
+    console.log('file upoad route--------------------');
+
+    console.log(req.files); // the uploaded file object
+    req.files.photo.mv(path.join(__dirname, '../public/upload', req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4)), function (err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+
+      } else {
+        req.files.photo.name = req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4)
+
+        console.log('upload success');
+
+        return res.send('success: ' + req.files.photo.name);
+      }
+    })
+    // res.json();
+
+  });
 
 };
