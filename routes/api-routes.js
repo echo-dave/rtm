@@ -43,14 +43,17 @@ module.exports = function (app) {
     console.log('file upoad route--------------------');
 
     console.log(req.files); // the uploaded file object
-    req.files.photo.mv(path.join(__dirname, '../public/upload', req.files.photo.name), function (err) {
+    req.files.photo.mv(path.join(__dirname, '../public/upload', req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4)), function (err) {
       if (err) {
         console.log(err);
         res.send(err);
 
       } else {
+        req.files.photo.name = req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4)
+
         console.log('upload success');
-        res.send('upload sucess');
+
+        return res.send('success: ' + req.files.photo.name);
       }
     })
     // res.json();
