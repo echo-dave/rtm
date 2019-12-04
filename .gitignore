@@ -1,3 +1,8 @@
+# testing uploaded files
+public/upload/*
+
+.DS_Store
+
 # Logs
 logs
 *.log
