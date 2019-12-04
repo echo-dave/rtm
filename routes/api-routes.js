@@ -16,12 +16,10 @@ module.exports = function (app) {
       if (err) {
         console.log(err);
         res.send(err);
-
       } else {
-        req.files.photo.name = req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4);
+        req.files.photo.namelong = req.files.photo.name.slice(0, -4) + Date.now() + req.files.photo.name.slice(-4);
         console.log('upload success');
         //return res.send('success: ' + req.files.photo.name);
-
       }
     });
     console.log("create--------------create");
@@ -37,9 +35,32 @@ module.exports = function (app) {
       res.send("success");
       //req.session.user = user.dataValues;
       //res.redirect("/");
-
+      return data
       // return res.send("session started");
-    });
+    }).then(
+      function (data) {
+        console.log('creat then log data');
+        console.log(data);
+        console.log('file name------------>');
+        console.log(req.files.photo.name);
+
+        db.Media.create({
+          url: "/upload/" + req.files.photo.namelong,
+          caption: req.files.photo.name.slice(0, -4),
+          UserId: data.dataValues.id,
+          media_type: req.files.photo.name.slice(-4)
+        }).then(function (media) {
+          db.User.update({
+            photo: media.dataValues.id
+          }, {
+            where: { id: media.dataValues.UserId }
+
+
+          })
+        })
+
+      })
+
     //res.json();
   });
   app.post("/api/auth/login", function (req, res) {

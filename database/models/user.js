@@ -7,7 +7,7 @@ module.exports = function (sequelize, dataTypes) {
       unique: true
     },
     photo: {
-      type: dataTypes.STRING
+      type: dataTypes.INTEGER
     },
     pass: {
       type: dataTypes.STRING,
