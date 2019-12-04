@@ -37,6 +37,11 @@ module.exports = function(app) {
     }).then(async function(user) {
       if (await user.validPassword(req.body.pass)) {
         console.log("success");
+        req.session.user = user.dataValues.name;
+        console.log("YOU ARE HERE!!!!!!!!!");
+        console.log(req.session.user);
+        setCookie();
+        getCookie();
         res.send("success");
       } else {
         console.log("bad pass");
@@ -45,6 +50,37 @@ module.exports = function(app) {
       //console.log(user);
     });
   });
+
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+  }
+
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2)
+      return parts
+        .pop()
+        .split(";")
+        .shift();
+  }
+
+  /* app.post("/api/auth/login", (req, res) => {
+    db.User.findOne({ where: { name: req.body.name } }).then(function(user) {
+      if (!user) {
+        res.redirect("/login");
+      } else if (!user.validPassword(req.body.pass)) {
+        res.redirect("/login");
+      } else {
+        req.session.user = user.dataValues.name;
+        res.redirect("/auth/newuser");
+        console.log("YOU ARE HERE!!!!!!!!!!!!");
+        console.log(req.session.user);
+      }
+    });
+  }); */
 
   app.post("/upload", function(req, res) {
     console.log("file upoad route--------------------");
