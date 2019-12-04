@@ -1,3 +1,5 @@
+# testing uploaded files
+public/upload/*
 # Logs
 logs
 *.log
