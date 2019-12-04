@@ -30,29 +30,30 @@
                     <div class="field">
                         <label class="label" for="pass">Password</label>
                         <div class="control">
-                            <input class="input" name="pass" type="password" placeholder="" required>
+                            <input class="input" name="pass" type="password" placeholder="" pattern=".{12,}">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label" for="passTest">Re-type Password</label>
                         <div class="control">
-                            <input class="input" name="passTest" type="password" placeholder="" required>
+                            <input class="input" name="passTest" type="password" placeholder="" required
+                                pattern=".{12,}">
                         </div>
                     </div>
-                </form>
-                <form id=formUploader method="POST" action="/upload" enctype="multipart/form-data">
+                    <!-- </form>
+                <form id=formUploader method=" POST" action="/upload" enctype="multipart/form-data"> -->
 
                     <div class="field">
                         <label class="label" for="photo">Photo</label>
                         <div class="control">
+                            <span id=imageRemove>X</span>
                             <input class="input" name="photo" type="file">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label" for="">&nbsp;</label>
                         <div class="control">
-                            <button class="button is-primary" name="makeNewUser" value="Upload!"
-                                type='submit'>Signup</button>
+                            <button class="button is-primary" name="makeNewUser" type='submit'>Signup</button>
                         </div>
                     </div>
                 </form>
