@@ -7,81 +7,96 @@ module.exports = function(app) {
     });
   });
   app.post("/api/auth/newuser", function(req, res) {
-    console.log(req);
     console.log("body---------------");
     console.log(req.body);
 
-    console.log("create--------------create");
+    db.User.findAll({
+      where: {
+        name: req.body.name
+      }
+    }).then(function(isUser) {
+      console.log("is user unique---------");
 
-    db.User.create(req.body)
-      .then(function(data) {
-        console.log("user ------------->");
-        console.log(data);
+      console.log(isUser);
+      if (isUser.length > 0) {
+        res.status(409).send({ err: "user name already taken" });
+        throw new Error("User Exists");
+      } else if (isUser.length == 0) {
+        console.log("create--------------create");
 
-        //make a login session
-        req.session.user = data.dataValues;
+        db.User.create(req.body)
+          .then(function(data) {
+            console.log("user ------------->");
+            console.log(data);
 
-        console.log("----------");
-        console.log("session");
-        console.log(req.session);
-        //res.send("success");
-        //res.redirect("/");
-        return data;
-        // return res.send("session started");
-      })
-      .then(function(data) {
-        console.log("creat then log data");
-        console.log(data);
-        console.log("file name------------>");
-        //console.log(req.files.photo.name);
-        if (req.files != null) {
-          console.log("file--------------file");
+            //make a login session
+            req.session.user = data.dataValues;
 
-          console.log(req.files);
+            console.log("----------");
+            console.log("session");
+            console.log(req.session);
+            //res.send("success");
+            //res.redirect("/");
+            return data;
+            // return res.send("session started");
+          })
+          .catch(function(error) {
+            res.send({ err: error });
+          })
+          .then(function(data) {
+            console.log("creat then log data");
+            console.log(data);
+            console.log("file name------------>");
+            //console.log(req.files.photo.name);
+            if (req.files != null) {
+              console.log("file--------------file");
 
-          req.files.photo.mv(
-            path.join(
-              __dirname,
-              "../public/upload",
-              req.files.photo.name.slice(0, -4) +
-                Date.now() +
-                req.files.photo.name.slice(-4)
-            ),
-            function(err) {
-              if (err) {
-                console.log(err);
-                res.send(err);
-              } else {
-                req.files.photo.namelong =
+              console.log(req.files);
+
+              req.files.photo.mv(
+                path.join(
+                  __dirname,
+                  "../public/upload",
                   req.files.photo.name.slice(0, -4) +
-                  Date.now() +
-                  req.files.photo.name.slice(-4);
-                console.log("upload success");
-              }
+                    Date.now() +
+                    req.files.photo.name.slice(-4)
+                ),
+                function(err) {
+                  if (err) {
+                    console.log(err);
+                    res.send(err);
+                  } else {
+                    req.files.photo.namelong =
+                      req.files.photo.name.slice(0, -4) +
+                      Date.now() +
+                      req.files.photo.name.slice(-4);
+                    console.log("upload success");
+                  }
+                }
+              );
+
+              db.Media.create({
+                url: "/upload/" + req.files.photo.namelong,
+                caption: req.files.photo.name.slice(0, -4),
+                UserId: data.dataValues.id,
+                media_type: req.files.photo.name.slice(-4)
+              }).then(function(media) {
+                db.User.update(
+                  {
+                    photo: media.dataValues.id
+                  },
+                  {
+                    where: { id: media.dataValues.UserId }
+                  }
+                );
+                res.send({ redirect: "/" });
+              });
+            } else {
+              res.send({ redirect: "/" });
             }
-          );
-
-          db.Media.create({
-            url: "/upload/" + req.files.photo.namelong,
-            caption: req.files.photo.name.slice(0, -4),
-            UserId: data.dataValues.id,
-            media_type: req.files.photo.name.slice(-4)
-          }).then(function(media) {
-            db.User.update(
-              {
-                photo: media.dataValues.id
-              },
-              {
-                where: { id: media.dataValues.UserId }
-              }
-            );
-            res.send({ redirect: "/" });
           });
-        } else {
-          res.send({ redirect: "/" });
-        }
-      });
-
+      }
+    });
     //res.json();
   });
   app.post("/api/auth/login", function(req, res) {

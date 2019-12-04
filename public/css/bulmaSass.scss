@@ -53,3 +53,14 @@ form {
 #imageRemove:hover {
   cursor: pointer;
 }
+
+.uNameErr {
+  position: absolute;
+  top: 0.6rem;
+  z-index: 100;
+  font-size: 1.2em;
+  color: red;
+  font-weight: bold;
+  background: none;
+  margin-left: 4rem;
+}

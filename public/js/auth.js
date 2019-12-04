@@ -6,6 +6,7 @@ $("#signUpForm").on("submit", function(e) {
   e.preventDefault();
   //remove input focus
   $("input").blur();
+  $("#unNameErr").remove();
 
   /* const files = $("input[name=photo]").prop("files");
     const reader = new FileReader();
@@ -36,17 +37,21 @@ $("#signUpForm").on("submit", function(e) {
     for (var [key, value] of newInputs.entries()) {
       console.log(key, value);
     }
-
+    function uError() {
+      $("form").append(`<h1 class="uNameErr">Username already in use<h1>`);
+    }
     $.ajax({
       url: "/api/auth/newuser",
       data: newInputs,
       processData: false,
       contentType: false,
-      type: "POST"
+      type: "POST",
+      409: uError()
     }).then(function(res) {
+      //console.log(res.status);
+
       if (res.redirect) {
         console.log("is redirect");
-
         window.location = res.redirect;
       }
     });
