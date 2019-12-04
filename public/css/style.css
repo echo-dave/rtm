@@ -70,3 +70,8 @@ body {
 .label1 {
   color: white;
 }
+
+.boxAdd {
+  width: 60%;
+  margin: 20px auto;
+}

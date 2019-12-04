@@ -71,7 +71,7 @@
           </div>
         </div>
       </nav>
-      <div class="container">
+      <div class="container box boxAdd">
         <form>
           <div class="field">
             <label class="label">Trail Name</label>
@@ -97,20 +97,21 @@
               </select>
             </div>
           </div>
-          <div class="control">
-            <label class="label">Level of Fun</label>
-            <div class="select">
-              <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+          <div class="field">
+            <label class="label">Short Description</label>
+            <div class="control">
+              <textarea
+                class="textarea"
+                placeholder="Up to 500 characters"
+              ></textarea>
             </div>
+          </div>
+          <div class="control">
+            <button class="button is-primary">Submit</button>
           </div>
         </form>
       </div>
+
       <div class="modal" id="modal1">
         <div class="modal-background"></div>
         <div class="modal-content">
