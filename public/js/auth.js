@@ -31,6 +31,7 @@ $("#signUpForm").on("submit", function(e) {
 
     //formData.append($("input[name!=passTest]").val());
     console.log(newInputs);
+    newInputs.delete("passTest", "makeNewUser");
     //logging of FormData
     for (var [key, value] of newInputs.entries()) {
       console.log(key, value);
