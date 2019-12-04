@@ -38,3 +38,18 @@ form {
   max-width: 500px;
   margin: 0 auto 1rem;
 }
+#imageRemove {
+  font-weight: bold;
+  color: red;
+  position: absolute;
+  right: 1rem;
+  top: 0.3rem;
+  z-index: 100;
+  padding: 0.1rem 0.7rem;
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+#imageRemove:hover {
+  cursor: pointer;
+}
