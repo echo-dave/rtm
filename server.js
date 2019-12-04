@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
-    key: "user_sid",
-    secret: "utrduybuyfiytfiytfiyg",
+    // key: "user_sid",
+    secret: "davelikescookies",
     resave: false,
     saveUninitialized: false,
     cookie: {

@@ -99,6 +99,12 @@ module.exports = function(app) {
     });
     //res.json();
   });
+
+  app.post("/api/test", function(req, res) {
+    console.log("page loaded-----------------");
+    console.log(req.session.user.id);
+    res.send("success");
+  });
   app.post("/api/auth/login", function(req, res) {
     console.log(req.body);
 
@@ -107,12 +113,17 @@ module.exports = function(app) {
     }).then(async function(user) {
       if (await user.validPassword(req.body.pass)) {
         console.log("success");
+        req.session.user = user.dataValues;
+        console.log("req session -----------");
+        console.log(req.session);
         res.send("success");
       } else {
         console.log("bad pass");
         res.send("bad pass");
       }
-      //console.log(user);
+      console.log("user----------->");
+
+      console.log(user);
     });
   });
 

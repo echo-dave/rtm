@@ -6,7 +6,7 @@ $("#signUpForm").on("submit", function(e) {
   e.preventDefault();
   //remove input focus
   $("input").blur();
-  $("#unNameErr").remove();
+  $("#uNameErr").remove();
 
   /* const files = $("input[name=photo]").prop("files");
     const reader = new FileReader();
@@ -54,6 +54,7 @@ $("#signUpForm").on("submit", function(e) {
         console.log("is redirect");
         window.location = res.redirect;
       }
+
     });
   } else {
     $("label[for=passTest").before(
