@@ -21,6 +21,7 @@ body {
   opacity: 0.9;
   text-align: center;
   margin: 20px;
+  border-radius: 15px;
 }
 
 .display-4 {
@@ -29,8 +30,9 @@ body {
 
 .card {
   opacity: 0.9;
-  margin-top: 20px;
   border-radius: 15px;
+  margin: 20px;
+  padding: 10px;
 }
 
 .card-header {
