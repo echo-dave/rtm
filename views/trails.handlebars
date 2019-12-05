@@ -1,15 +1,70 @@
-<h1>Trails</h1>
-<h3>Trail: {{name}}</h3>
-<h3>State: {{state}}</h3>
-<h3>City: {{city}}</h3>
-<h3>Address: {{address}}</h3>
-<h3>Create By: {{User.name}}</h3>
-{{description}}
+<div class="body">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="../public/images/bike.png" width="50" height="50" />
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
 
-<h1>Reviews</h1>
-{{#each Reviews}}
-<h3>{{title}}</h3>
-<h3>{{review}}</h3>
-<h3>{{User.name}}</h3>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item item1" href="/index">
+                    Ride the Mountain
+                </a>
 
-{{/each}}
+                <a class="navbar-item" href="#">
+                    Browse
+                </a>
+                <a class="navbar-item" href="#">
+                    Add A Trail
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary login">
+                            <strong>Login</strong>
+                        </a>
+                        <a class="button is-light signup">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container boxAdd">
+        <div class="title-trail">
+            <h1>Trails</h1>
+        </div>
+        <div class="trail">
+            <h3>Trail: {{name}}</h3>
+            <h3>State: {{state}}</h3>
+            <h3>City: {{city}}</h3>
+            <h3>Address: {{address}}</h3>
+            <h3>Create By: {{User.name}}</h3>
+            <h3>{{User.name}} said this about {{name}}: {{description}}</h3>
+        </div>
+    </div>
+    <div class="user-review">
+        <h1>Reviews</h1>
+        {{#each Reviews}}
+        <h3>{{title}}</h3>
+        <h3>{{review}}</h3>
+        <h3>{{User.name}}</h3>
+        {{/each}}
+        <div class="field">
+            <label class="label" for="description">Short Description</label>
+            <div class="control">
+                <textarea class="textarea" name="review" placeholder="What do you think about this trail?"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
