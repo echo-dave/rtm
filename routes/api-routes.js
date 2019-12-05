@@ -200,7 +200,7 @@ module.exports = function(app) {
       ]
     }).then(function(trailData) {
       console.log(trailData);
-      res.json(trailData);
+      res.render("trails", trailData);
     });
   });
 };
