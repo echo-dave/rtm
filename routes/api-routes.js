@@ -16,11 +16,12 @@ module.exports = function(app) {
       }
     }).then(function(isUser) {
       console.log("is user unique---------");
-
       console.log(isUser);
+      //if user exists
       if (isUser.length > 0) {
         res.status(409).send({ err: "user name already taken" });
         throw new Error("User Exists");
+        //else if a new user
       } else if (isUser.length == 0) {
         console.log("create--------------create");
 
@@ -154,5 +155,44 @@ module.exports = function(app) {
       }
     );
     // res.json();
+  });
+
+  //new trail
+  app.post("/api/trail/new", function(req, res) {
+    if (!req.session.user) {
+      console.log("no session");
+
+      res.status(403).send("not logged in");
+      throw new Error("Not logged in");
+    } else {
+      console.log("session");
+
+      console.log(req.session);
+      console.log("body -------------->");
+      console.log(req.body);
+
+      let uID = req.session.user.id;
+      req.body.UserId = uID;
+      db.Trail.create(req.body).then(function(trail) {
+        console.log(trail);
+        console.log("trail body above");
+
+        res.redirect("/trail/" + req.body.name);
+      });
+    }
+  });
+
+  app.get("/trail/:trail", function(req, res) {
+    console.log("load trail");
+
+    db.Trail.findOne({
+      where: {
+        name: req.params.trail
+      },
+      include: [db.Review, db.User]
+    }).then(function(trailData) {
+      console.log(trailData);
+      res.end();
+    });
   });
 };
