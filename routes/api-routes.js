@@ -1,3 +1,4 @@
+const isAuthorized = require("../middleware/isAuthorized");
 const db = require("../database/models");
 const path = require("path");
 module.exports = function(app) {
@@ -114,7 +115,7 @@ module.exports = function(app) {
     }).then(async function(user) {
       if (await user.validPassword(req.body.pass)) {
         console.log("success");
-        req.session.user = user.dataValues;
+        req.session.user = user.dataValues.id;
         console.log("req session -----------");
         console.log(req.session);
         res.send("success");
@@ -158,28 +159,19 @@ module.exports = function(app) {
   });
 
   //new trail
-  app.post("/api/trail/new", function(req, res) {
-    if (!req.session.user) {
-      console.log("no session");
+  app.post("/api/trail/new", isAuthorized, function(req, res) {
+    console.log(req.session);
+    console.log("body -------------->");
+    console.log(req.body);
 
-      res.status(403).send("not logged in");
-      throw new Error("Not logged in");
-    } else {
-      console.log("session");
+    let uID = req.session.user.id;
+    req.body.UserId = uID;
+    db.Trail.create(req.body).then(function(trail) {
+      console.log(trail);
+      console.log("trail body above");
 
-      console.log(req.session);
-      console.log("body -------------->");
-      console.log(req.body);
-
-      let uID = req.session.user.id;
-      req.body.UserId = uID;
-      db.Trail.create(req.body).then(function(trail) {
-        console.log(trail);
-        console.log("trail body above");
-
-        res.redirect("/trail/" + req.body.name);
-      });
-    }
+      res.redirect("/trail/" + req.body.name);
+    });
   });
 
   app.get("/trail/:trail", function(req, res) {
@@ -200,6 +192,7 @@ module.exports = function(app) {
       ]
     }).then(function(trailData) {
       console.log(trailData);
+      res.json(trailData);
       res.render("trails", trailData);
     });
   });
