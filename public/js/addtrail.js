@@ -22,7 +22,7 @@ $("#newTrail").on("submit", function(e) {
     //console.log(xhr.responseJSON);
 
     console.log(res);
-    // window.location = res;
+    window.location.href = res.resourceURL;
   });
 });
 

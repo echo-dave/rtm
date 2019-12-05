@@ -171,7 +171,7 @@ module.exports = function(app) {
       console.log(trail);
       console.log("trail body above");
 
-      res.redirect("/trail/" + req.body.name);
+      res.json({ resourceURL: "/trail/" + req.body.name });
     });
   });
 
