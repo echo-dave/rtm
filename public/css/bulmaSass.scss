@@ -56,11 +56,18 @@ form {
 
 .uNameErr {
   position: absolute;
-  top: 0.6rem;
+  top: 1rem;
   z-index: 100;
   font-size: 1.2em;
   color: red;
   font-weight: bold;
   background: none;
-  margin-left: 4rem;
+  margin-left: 40%;
+}
+
+#notLoggedIn {
+  position: relative;
+  top: 1rem;
+  color: red;
+  font-size: 1.5em;
 }

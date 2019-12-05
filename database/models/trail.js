@@ -30,6 +30,7 @@ module.exports = function(sequelize, dataTypes) {
   Trail.associate = function(models) {
     Trail.hasMany(models.Review);
     Trail.hasMany(models.Media);
+    Trail.belongsTo(models.User);
   };
   return Trail;
 };

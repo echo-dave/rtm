@@ -54,7 +54,7 @@ $("#signUpForm").on("submit", function(e) {
         console.log("is redirect");
         window.location = res.redirect;
       }
-
+      console.log(res);
     });
   } else {
     $("label[for=passTest").before(
@@ -69,5 +69,8 @@ $("#loginForm").on("submit", function(event) {
 
   $.post("/api/auth/login", $(this).serialize(), function(res) {
     console.log(res);
+    if (res == "success") {
+      $("#modal2").removeClass("is-active");
+    }
   });
 });
