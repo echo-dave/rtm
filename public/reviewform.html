@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="bulma.css" />
+    <link rel="stylesheet" href="/css/bulmaSass.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="newReview">
+        <div class="field">
+            <label class="label" for="title">Ritle</label>
+            <div class="control">
+                <input class="input" type="text" name="title" placeholder="Title" required />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="revnew">Comments / Review</label>
+            <div class="control">
+                <input class="textarea input" type="textarea" name="review"
+                    placeholder="Drop in you comments or review or upload super cool photos" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="photo">Photo</label>
+            <div class="control">
+                <span id="imageRemove">X</span>
+                <input class="input" name="photo" type="file" />
+            </div>
+        </div>
+
+        <div class="control">
+            <button id="addReview" type="submit" class="button is-primary">Drop it In</button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

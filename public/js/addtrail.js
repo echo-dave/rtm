@@ -13,7 +13,7 @@ $("#newTrail").on("submit", function(e) {
     type: "POST",
     error: function(req, status, err) {
       console.log(status);
-      if (err == "Forbidden") {
+      if (err == "Unauthorized") {
         uError();
       }
     }

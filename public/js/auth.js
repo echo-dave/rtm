@@ -71,6 +71,18 @@ $("#loginForm").on("submit", function(event) {
     console.log(res);
     if (res == "success") {
       $("#modal2").removeClass("is-active");
+      $("#notLoggedIn").remove();
+      $("a.login").hide();
+      $("a.signup").hide();
     }
   });
+});
+
+$.get("/api/auth", function(res) {
+  console.log(res);
+
+  if (res.status == "authorized") {
+    $("a.login").hide();
+    $("a.signup").hide();
+  }
 });

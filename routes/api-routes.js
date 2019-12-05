@@ -7,6 +7,10 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.get("/api/auth", isAuthorized, function(req, res) {
+    res.json({ status: "authorized" });
+  });
   app.post("/api/auth/newuser", function(req, res) {
     console.log("body---------------");
     console.log(req.body);

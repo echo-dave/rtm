@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
+    name: "cookiemonsterc",
     // key: "user_sid",
     secret: "davelikescookies",
     resave: false,
