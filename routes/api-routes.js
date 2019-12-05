@@ -32,7 +32,8 @@ module.exports = function(app) {
             console.log(data);
 
             //make a login session
-            req.session.user = data.dataValues;
+            req.session.user = data.dataValues.id;
+            req.session.name = user.dataValues.name;
 
             console.log("----------");
             console.log("session");
@@ -99,14 +100,8 @@ module.exports = function(app) {
           });
       }
     });
-    //res.json();
   });
 
-  app.post("/api/test", function(req, res) {
-    console.log("page loaded-----------------");
-    console.log(req.session.user.id);
-    res.send("success");
-  });
   app.post("/api/auth/login", function(req, res) {
     console.log(req.body);
 
@@ -116,6 +111,7 @@ module.exports = function(app) {
       if (await user.validPassword(req.body.pass)) {
         console.log("success");
         req.session.user = user.dataValues.id;
+        req.session.name = user.dataValues.name;
         console.log("req session -----------");
         console.log(req.session);
         res.send("success");
@@ -165,7 +161,7 @@ module.exports = function(app) {
     console.log("body -------------->");
     console.log(req.body);
 
-    let uID = req.session.user.id;
+    let uID = req.session.user;
     req.body.UserId = uID;
     db.Trail.create(req.body).then(function(trail) {
       console.log(trail);

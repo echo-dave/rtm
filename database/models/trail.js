@@ -24,6 +24,12 @@ module.exports = function(sequelize, dataTypes) {
     },
     address: {
       type: dataTypes.STRING
+    },
+    description: {
+      type: dataTypes.BLOB
+    },
+    rating: {
+      type: dataTypes.DECIMAL(3, 2)
     }
   });
 
