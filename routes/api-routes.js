@@ -186,13 +186,21 @@ module.exports = function(app) {
     console.log("load trail");
 
     db.Trail.findOne({
+      attributes: ["name", "city", "state"],
       where: {
         name: req.params.trail
       },
-      include: [db.Review, db.User]
+      include: [
+        { model: db.User, attributes: ["name"] },
+        {
+          model: db.Review,
+          attributes: ["title", "review"],
+          include: [{ model: db.User, attributes: ["name"] }]
+        }
+      ]
     }).then(function(trailData) {
       console.log(trailData);
-      res.end();
+      res.render("trails", trailData);
     });
   });
 };
