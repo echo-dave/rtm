@@ -19,9 +19,10 @@ $("#newTrail").on("submit", function(e) {
     }
     // 403: uError()
   }).then(function(res) {
-    console.log(xhr.responseJSON);
+    //console.log(xhr.responseJSON);
 
-    console.log(res.redirect);
+    console.log(res);
+    // window.location = res;
   });
 });
 

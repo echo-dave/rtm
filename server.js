@@ -16,8 +16,8 @@ const app = express();
 PORT = process.env.PORT || 8080;
 
 //templating engine
-app.engine("handbars", exphbs());
-app.set("view endgine", "handelbars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 //middleware
 app.use(cookieParser());

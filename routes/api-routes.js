@@ -159,6 +159,7 @@ module.exports = function(app) {
   });
 
   //new trail
+
   app.post("/api/trail/new", isAuthorized, function(req, res) {
     console.log(req.session);
     console.log("body -------------->");
@@ -191,9 +192,7 @@ module.exports = function(app) {
         }
       ]
     }).then(function(trailData) {
-      console.log(trailData);
-      res.json(trailData);
-      res.render("trails", trailData);
+      res.render("trails", trailData.toJSON());
     });
   });
 };
