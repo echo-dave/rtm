@@ -175,7 +175,7 @@ module.exports = function(app) {
     console.log("load trail");
 
     db.Trail.findOne({
-      attributes: ["name", "city", "state"],
+      attributes: ["name", "city", "state", "address", "description"],
       where: {
         name: req.params.trail
       },
