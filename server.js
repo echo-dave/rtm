@@ -11,12 +11,13 @@ const fileUpload = require("express-fileupload");
 //express
 const exphbs = require("express-handlebars");
 
-app.engine("handbars", exphbs());
-app.set("view endgine", "handelbars");
-
 const express = require("express");
 const app = express();
 PORT = process.env.PORT || 8080;
+
+//templating engine
+app.engine("handbars", exphbs());
+app.set("view endgine", "handelbars");
 
 //middleware
 app.use(cookieParser());

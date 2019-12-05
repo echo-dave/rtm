@@ -5,6 +5,7 @@ module.exports = function(sequelize, dataTypes) {
   });
   Review.associate = function(models) {
     Review.hasMany(models.Media);
+    Review.belongsTo(models.User);
   };
 
   return Review;
