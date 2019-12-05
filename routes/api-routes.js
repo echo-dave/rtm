@@ -176,8 +176,8 @@ module.exports = function(app) {
       db.Trail.create(req.body).then(function(trail) {
         console.log(trail);
         console.log("trail body above");
-
-        res.redirect("/trail/" + req.body.name);
+        console.log("/trail/" + req.body.name);
+        res.send("/trail/" + req.body.name);
       });
     }
   });
@@ -199,8 +199,7 @@ module.exports = function(app) {
         }
       ]
     }).then(function(trailData) {
-      console.log(trailData);
-      res.render("trails", trailData);
+      res.render("trails", trailData.toJSON());
     });
   });
 };
