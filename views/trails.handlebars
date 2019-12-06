@@ -1,15 +1,60 @@
-<h1>Trails</h1>
-<h3>Trail: {{name}}</h3>
-<h3>State: {{state}}</h3>
-<h3>City: {{city}}</h3>
-<h3>Address: {{address}}</h3>
-<h3>Create By: {{User.name}}</h3>
-{{description}}
+<div class="container  boxAdd">
 
-<h1>Reviews</h1>
-{{#each Reviews}}
-<h3>{{title}}</h3>
-<h3>{{review}}</h3>
-<h3>{{User.name}}</h3>
+    <div class="trail box">
+        <h1 class="title is-1" id="title" data-id="{{id}}">{{name}}</h1>
 
-{{/each}}
+        <p class="trailDetails is-small">Location: {{city}} {{state}}</br>
+            Address: {{address}} </br>
+            Added By: {{User.name}} </br>
+            <p class="trailDescription">{{description}}</p>
+            <button id="reviewButton" class="button is-primary">Add Review</button>
+
+    </div>
+
+
+    <form id="newReview" class="box">
+        <div class="field">
+            <label class="label" for="title">Title</label>
+            <div class="control">
+                <input class="input" type="text" name="title" placeholder="Title" required />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="revnew">Comments / Review</label>
+            <div class="control">
+                <textarea class="textarea" type="textarea" name="review"
+                    placeholder="Drop in you comments or review or upload super cool photos" /></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="photo">Photo</label>
+            <div class="control">
+                <span id="imageRemove">X</span>
+                <input class="input" name="photo" type="file" />
+            </div>
+        </div>
+
+        <div class="control">
+            <button id="addReview" type="submit" class="button is-primary">Drop it In</button>
+        </div>
+    </form>
+
+    <h2 class="title is-2 reviewHead button">Reviews</h2>
+    {{#each Reviews}}
+    <div class="user-review box">
+
+        <h3 class="title is-3">{{title}}</h3>
+        <h3 class="subtitle is-6">by: {{../User.name}}</h3>
+        {{#each Media}}
+        <img src="{{url}}" class="reviewImage" />
+        {{/each}}
+        <h3>{{review}}</h3>
+    </div>
+
+    {{/each}}
+    {{Reviews.Media.url}}
+
+</div>
+</div>

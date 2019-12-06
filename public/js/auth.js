@@ -1,7 +1,9 @@
 $("#imageRemove").on("click", function(e) {
   $("input[name=photo]").val(null);
 });
-
+$("input[name=name").focus(function() {
+  $("uError").remove();
+});
 $("#signUpForm").on("submit", function(e) {
   e.preventDefault();
   //remove input focus
@@ -46,7 +48,11 @@ $("#signUpForm").on("submit", function(e) {
       processData: false,
       contentType: false,
       type: "POST",
-      409: uError()
+      409: function(res) {
+        if (res == "Conflict") {
+          uError();
+        }
+      }
     }).then(function(res) {
       //console.log(res.status);
 
@@ -71,6 +77,18 @@ $("#loginForm").on("submit", function(event) {
     console.log(res);
     if (res == "success") {
       $("#modal2").removeClass("is-active");
+      $("#notLoggedIn").remove();
+      $("a.login").hide();
+      $("a.signup").hide();
     }
   });
+});
+
+$.get("/api/auth", function(res) {
+  console.log(res);
+
+  if (res.status == "authorized") {
+    $("a.login").hide();
+    $("a.signup").hide();
+  }
 });

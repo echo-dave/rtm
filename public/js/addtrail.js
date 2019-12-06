@@ -13,7 +13,7 @@ $("#newTrail").on("submit", function(e) {
     type: "POST",
     error: function(req, status, err) {
       console.log(status);
-      if (err == "Forbidden") {
+      if (err == "Unauthorized") {
         uError();
       }
     }
@@ -30,4 +30,6 @@ function uError() {
   $("#newTrail").append(
     `<span id="notLoggedIn">Please log in to proceed<span>`
   );
+  $("a.login").show();
+  $("a.signup").show();
 }

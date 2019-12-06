@@ -7,6 +7,12 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  //login checker
+  app.get("/api/auth", isAuthorized, function(req, res) {
+    res.json({ status: "authorized" });
+  });
+
   app.post("/api/auth/newuser", function(req, res) {
     console.log("body---------------");
     console.log(req.body);
@@ -33,7 +39,7 @@ module.exports = function(app) {
 
             //make a login session
             req.session.user = data.dataValues.id;
-            req.session.name = user.dataValues.name;
+            req.session.name = data.dataValues.name;
 
             console.log("----------");
             console.log("session");
@@ -170,12 +176,12 @@ module.exports = function(app) {
       res.json({ resourceURL: "/trail/" + req.body.name });
     });
   });
-
+  //dynamic trail url
   app.get("/trail/:trail", function(req, res) {
     console.log("load trail");
 
     db.Trail.findOne({
-      attributes: ["name", "city", "state", "address", "description"],
+      attributes: ["id", "name", "city", "state", "address", "description"],
       where: {
         name: req.params.trail
       },
@@ -184,11 +190,66 @@ module.exports = function(app) {
         {
           model: db.Review,
           attributes: ["title", "review"],
-          include: [{ model: db.User, attributes: ["name"] }]
+          include: [{ model: db.User, attributes: ["name"] }],
+          include: [{ model: db.Media, attribues: ["url"] }]
         }
       ]
     }).then(function(trailData) {
+      console.log(trailData.toJSON());
+      // res.json(trailData);
       res.render("trails", trailData.toJSON());
+    });
+  });
+
+  //new review
+  app.post("/api/review/new", isAuthorized, function(req, res) {
+    req.body.UserId = req.session.user;
+    console.log("req body");
+    console.log(req.body);
+    db.Review.create(req.body).then(function(data) {
+      console.log("review data");
+
+      console.log(data);
+
+      if (req.files != null) {
+        console.log("file--------------file");
+        console.log(req.files);
+
+        req.files.photo.namelong =
+          req.files.photo.name.slice(0, -4) +
+          Date.now() +
+          req.files.photo.name.slice(-4);
+
+        req.files.photo.mv(
+          path.join(
+            __dirname,
+            "../public/upload",
+            req.files.photo.name.slice(0, -4) +
+              Date.now() +
+              req.files.photo.name.slice(-4)
+          ),
+          function(err) {
+            if (err) {
+              console.log(err);
+              res.send(err);
+            } else {
+              console.log("upload success");
+            }
+          }
+        );
+
+        db.Media.create({
+          url: "/upload/" + req.files.photo.namelong,
+          caption: req.files.photo.name.slice(0, -4),
+          UserId: req.body.UserId,
+          media_type: req.files.photo.name.slice(-4),
+          ReviewId: data.dataValues.id
+        }).then(function(media) {
+          res.send({ status: "done" });
+        });
+      } else {
+        res.send({ status: "done" });
+      }
     });
   });
 };
