@@ -195,8 +195,8 @@ module.exports = function(app) {
         }
       ]
     }).then(function(trailData) {
-      console.log(trailData);
-      //res.json(trailData);
+      console.log(trailData.toJSON());
+      // res.json(trailData);
       res.render("trails", trailData.toJSON());
     });
   });
