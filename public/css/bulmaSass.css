@@ -9426,4 +9426,27 @@ form {
   margin: 0.5em 0;
 }
 
+.trailDescription {
+  margin: 0.8rem;
+  font-weight: 250;
+}
+
+.reviewHead {
+  width: 12rem;
+  position: relative;
+  bottom: -2.8rem;
+  box-shadow: none;
+  left: -0.5rem;
+  border-radius: 0.4rem 0.4rem 0 0;
+  border: none;
+}
+
+.reviewHead:hover {
+  cursor: default;
+}
+
+.user-review {
+  margin: 1rem 2rem;
+}
+
 /*# sourceMappingURL=bulmaSass.css.map */

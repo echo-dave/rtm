@@ -1,18 +1,18 @@
-<div class="container box boxAdd">
+<div class="container  boxAdd">
 
-    <div class="trail">
+    <div class="trail box">
         <h1 class="title is-1" id="title" data-id="{{id}}">{{name}}</h1>
 
         <p class="trailDetails is-small">Location: {{city}} {{state}}</br>
             Address: {{address}} </br>
             Added By: {{User.name}} </br>
-            <h3 class="title is-5">{{description}}</h3>
+            <p class="trailDescription">{{description}}</p>
             <button id="reviewButton" class="button is-primary">Add Review</button>
 
     </div>
 
 
-    <form id="newReview">
+    <form id="newReview" class="box">
         <div class="field">
             <label class="label" for="title">Title</label>
             <div class="control">
@@ -23,8 +23,8 @@
         <div class="field">
             <label class="label" for="revnew">Comments / Review</label>
             <div class="control">
-                <input class="textarea input" type="textarea" name="review"
-                    placeholder="Drop in you comments or review or upload super cool photos" />
+                <textarea class="textarea" type="textarea" name="review"
+                    placeholder="Drop in you comments or review or upload super cool photos" /></textarea>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
         </div>
     </form>
 
-    <h2 class="title is-2">Reviews</h2>
+    <h2 class="title is-2 reviewHead button">Reviews</h2>
     {{#each Reviews}}
     <div class="user-review box">
 
