@@ -142,118 +142,102 @@
                 <div class="card-header">
                   Most Recent
                 </div>
-                <div class="card-body">
-                  <blockquote class="blockquote mb-0">
-                    <p>
-                      recent
-                    </p>
-                    <p>
-                      recent
-                    </p>
-                    <p>
-                      recent
-                    </p>
-                    <p>
-                      recent
-                    </p>
-                    <p>
-                      recent
-                    </p>
-                  </blockquote>
-                </div>
               </div>
+              <div id="trail-list" class="container"></div>
+
             </div>
           </div>
         </div>
       </div>
-
-      <div class="modal" id="modal1">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <form id="signUpForm" action="">
-            <div class="field">
-              <label class="label label1" for="name">Name</label>
-              <div class="control">
-                <input class="input" name="name" type="text" placeholder="Name" required />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label label1" for="pass">Password</label>
-              <div class="control">
-                <input class="input" name="pass" type="password" placeholder="Password" pattern=".{12,}" />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label label1" for="passTest">Re-type Password</label>
-              <div class="control">
-                <input class="input" name="passTest" type="password" placeholder="Retype Password" required
-                  pattern=".{12,}" />
-              </div>
-            </div>
-            <!-- </form>
-                <form id=formUploader method=" POST" action="/upload" enctype="multipart/form-data"> -->
-
-            <div class="field">
-              <label class="label label1" for="photo">Photo</label>
-              <div class="control">
-                <span id="imageRemove">X</span>
-                <input class="input" name="photo" type="file" />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label" for="">&nbsp;</label>
-              <div class="control">
-                <button class="button is-primary" name="makeNewUser" type="submit">
-                  Signup
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-      </div>
     </div>
 
-    <div class="modal" id="modal2">
+    <div class="modal" id="modal1">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <form id="loginForm" action="">
-          <div class="container is-paddings-2">
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="field">
-                  <label class="label label1" for="name">Name</label>
-                  <div class="control">
-                    <input class="input" name="name" type="text" placeholder="Name" required />
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label label1" for="pass">Password</label>
-                  <div class="control">
-                    <input class="input" name="pass" type="password" placeholder="Password" required />
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label" for="">&nbsp;</label>
-                  <div class="control">
-                    <button class="button is-primary" name="login" type="submit">
-                      Login
-                    </button>
-                  </div>
-                </div>
-              </div>
+        <form id="signUpForm" action="">
+          <div class="field">
+            <label class="label label1" for="name">Name</label>
+            <div class="control">
+              <input class="input" name="name" type="text" placeholder="Name" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label label1" for="pass">Password</label>
+            <div class="control">
+              <input class="input" name="pass" type="password" placeholder="Password" pattern=".{12,}" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label label1" for="passTest">Re-type Password</label>
+            <div class="control">
+              <input class="input" name="passTest" type="password" placeholder="Retype Password" required
+                pattern=".{12,}" />
+            </div>
+          </div>
+          <!-- </form>
+                <form id=formUploader method=" POST" action="/upload" enctype="multipart/form-data"> -->
+
+          <div class="field">
+            <label class="label label1" for="photo">Photo</label>
+            <div class="control">
+              <span id="imageRemove">X</span>
+              <input class="input" name="photo" type="file" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="">&nbsp;</label>
+            <div class="control">
+              <button class="button is-primary" name="makeNewUser" type="submit">
+                Signup
+              </button>
             </div>
           </div>
         </form>
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
+  </div>
 
-    <footer class="page-footer">
-      <div class="footer-copyright text-center py-3">
-        © Copyright Purple Team
-      </div>
-    </footer>
+  <div class="modal" id="modal2">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <form id="loginForm" action="">
+        <div class="container is-paddings-2">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="field">
+                <label class="label label1" for="name">Name</label>
+                <div class="control">
+                  <input class="input" name="name" type="text" placeholder="Name" required />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label label1" for="pass">Password</label>
+                <div class="control">
+                  <input class="input" name="pass" type="password" placeholder="Password" required />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" for="">&nbsp;</label>
+                <div class="control">
+                  <button class="button is-primary" name="login" type="submit">
+                    Login
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-copyright text-center py-3">
+      © Copyright Purple Team
+    </div>
+  </footer>
   </div>
   <script type="text/javascript">
     $(".signup").click(function () {
@@ -270,6 +254,7 @@
     });
   </script>
   <script src="js/auth.js"></script>
+  <script src="js/trailList.js"></script>
 </body>
 
 </html>

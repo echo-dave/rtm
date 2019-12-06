@@ -9445,4 +9445,27 @@ form {
   margin: 1rem 2rem;
 }
 
+.trailBody,
+.trailLocation,
+.trailName {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.trailLocation {
+  margin-top: -0.8rem;
+}
+
+#trail-list {
+  margin-top: -1.4rem;
+}
+
+.frontpagelist {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.twitter {
+  margin-top: 1.2rem;
+}
+
 /*# sourceMappingURL=bulmaSass.css.map */
