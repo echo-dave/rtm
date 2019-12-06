@@ -2,17 +2,20 @@ const isAuthorized = require("../middleware/isAuthorized");
 const db = require("../database/models");
 const path = require("path");
 module.exports = function(app) {
-  app.get("/api/users", function(req, res) {
-    db.User.findAll().then(function(data) {
-      res.json(data);
-    });
-  });
-
   //login checker
   app.get("/api/auth", isAuthorized, function(req, res) {
     res.json({ status: "authorized" });
   });
+  app.get("/trail/all", function(req, res) {
+    db.Trail.findAll({
+      attributes: ["name", "city", "state", "description"],
+      include: [{ model: db.User, attributes: ["name"] }]
+    }).then(function(trails) {
+      console.log(trails);
 
+      res.json(trails);
+    });
+  });
   app.post("/api/auth/newuser", function(req, res) {
     console.log("body---------------");
     console.log(req.body);
@@ -98,10 +101,10 @@ module.exports = function(app) {
                     where: { id: media.dataValues.UserId }
                   }
                 );
-                res.send({ redirect: "/" });
+                res.send({ redirect: "/", userName: req.body.name });
               });
             } else {
-              res.send({ redirect: "/" });
+              res.send({ redirect: "/", userName: req.body.name });
             }
           });
       }
@@ -120,7 +123,7 @@ module.exports = function(app) {
         req.session.name = user.dataValues.name;
         console.log("req session -----------");
         console.log(req.session);
-        res.send("success");
+        res.send({ status: "success", userName: req.body.name });
       } else {
         console.log("bad pass");
         res.send("bad pass");

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ride the Mountain Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="bulma.css" />
+    <link rel="stylesheet" href="/css/bulmaSass.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div id="trail-list" lass="container is-centered">
+
+
+
+    </div>
+
+
+
+
+
+    <script>
+        $.get('/trail/all', function (data) {
+            console.log(data);
+            let traildata = data;
+            console.log(traildata);
+
+            for (let i = 0; i < traildata.length; i++) {
+
+                $('#trail-list').append(`
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                      <div class="box">
+                <h1 class="trailName">${traildata[i].name}<h1>
+                    <h3 class="trailLocation">${traildata[i].city},${traildata[i].state}</h3>
+                    <p class="trailBody">${traildata[i].description}</p>
+            </div>
+        </div>
+    </div>
+
+`)
+            }
+        })
+    </script>
+</body>
+
+</html>
