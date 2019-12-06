@@ -8,9 +8,11 @@ module.exports = function(app) {
     });
   });
 
+  //login checker
   app.get("/api/auth", isAuthorized, function(req, res) {
     res.json({ status: "authorized" });
   });
+
   app.post("/api/auth/newuser", function(req, res) {
     console.log("body---------------");
     console.log(req.body);
@@ -37,7 +39,7 @@ module.exports = function(app) {
 
             //make a login session
             req.session.user = data.dataValues.id;
-            req.session.name = user.dataValues.name;
+            req.session.name = data.dataValues.name;
 
             console.log("----------");
             console.log("session");

@@ -1,7 +1,9 @@
 $("#imageRemove").on("click", function(e) {
   $("input[name=photo]").val(null);
 });
-
+$("input[name=name").focus(function() {
+  $("uError").remove();
+});
 $("#signUpForm").on("submit", function(e) {
   e.preventDefault();
   //remove input focus
@@ -46,7 +48,11 @@ $("#signUpForm").on("submit", function(e) {
       processData: false,
       contentType: false,
       type: "POST",
-      409: uError()
+      409: function(res) {
+        if (res == "Conflict") {
+          uError();
+        }
+      }
     }).then(function(res) {
       //console.log(res.status);
 

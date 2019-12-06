@@ -9398,7 +9398,7 @@ form {
 
 .uNameErr {
   position: absolute;
-  top: 1rem;
+  top: 2.5rem;
   z-index: 100;
   font-size: 1.2em;
   color: red;
