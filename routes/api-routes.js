@@ -174,12 +174,12 @@ module.exports = function(app) {
       res.json({ resourceURL: "/trail/" + req.body.name });
     });
   });
-
+  //dynamic trail url
   app.get("/trail/:trail", function(req, res) {
     console.log("load trail");
 
     db.Trail.findOne({
-      attributes: ["name", "city", "state", "address", "description"],
+      attributes: ["id,", "name", "city", "state", "address", "description"],
       where: {
         name: req.params.trail
       },
@@ -194,5 +194,11 @@ module.exports = function(app) {
     }).then(function(trailData) {
       res.render("trails", trailData.toJSON());
     });
+  });
+
+  //new review
+  app.post("/api/review/new", isAuthorized, function(req, res) {
+    req.body.UserId = session.user;
+    db.Review.create(req.body);
   });
 };
