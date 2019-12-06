@@ -57,7 +57,7 @@ $("#signUpForm").on("submit", function(e) {
       //console.log(res.status);
 
       if (res.redirect) {
-        whoAreYou(res);
+        setWhoYouAre(res);
         console.log("is redirect");
         window.location = res.redirect;
       }
@@ -77,7 +77,7 @@ $("#loginForm").on("submit", function(event) {
   $.post("/api/auth/login", $(this).serialize(), function(res) {
     console.log(res);
     if (res.status == "success") {
-      whoAreYou(res);
+      setWhoYouAre(res);
       $("#modal2").removeClass("is-active");
       $("#notLoggedIn").remove();
       $("a.login").hide();
@@ -86,8 +86,11 @@ $("#loginForm").on("submit", function(event) {
   });
 });
 
-function whoAreYou(res) {
+function setWhoYouAre(res) {
   localStorage.setItem("uName", res.userName);
+}
+
+function whoAreYou(res) {
   $("div.buttons").append(localStorage.getItem("uName"));
 }
 
