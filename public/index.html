@@ -23,7 +23,7 @@
           <img src="images/bike.png" width="50" height="50" />
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-          data-target="navbarBasicExample">
+          data-target="navbarBasicExample" id="burger">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -34,10 +34,6 @@
         <div class="navbar-start">
           <a class="navbar-item item1" href="#">
             Ride the Mountain
-          </a>
-
-          <a class="navbar-item" href="#">
-            Browse
           </a>
           <a class="navbar-item" href="/addtrail">
             Add A Trail
@@ -138,10 +134,8 @@
           </div>
           <div class="columns trails">
             <div class="column">
-              <div class="card">
-                <div class="card-header">
+              <div class="box item1 mostRecent">
                   Most Recent
-                </div>
               </div>
               <div id="trail-list" class="container"></div>
 
@@ -252,6 +246,16 @@
     $(".modal-close").click(function () {
       $("#modal2").removeClass("is-active");
     });
+    $("#burger").click(function() {
+        if ($(".navbar-menu").hasClass("is-active")) {
+          $(".navbar-menu").removeClass("is-active");
+          //console.log("hello");
+        } else {
+          //console.log("go away");
+          $(".navbar-menu").addClass("is-active");
+        }
+      });
+
   </script>
   <script src="js/auth.js"></script>
   <script src="js/trailList.js"></script>
