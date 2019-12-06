@@ -9414,4 +9414,16 @@ form {
   font-size: 1.5em;
 }
 
+.trailDetails {
+  margin-top: -1em;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.trail h1,
+.trail h2,
+.trail h3 {
+  margin: 0.5em 0;
+}
+
 /*# sourceMappingURL=bulmaSass.css.map */

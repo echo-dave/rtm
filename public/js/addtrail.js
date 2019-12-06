@@ -30,4 +30,6 @@ function uError() {
   $("#newTrail").append(
     `<span id="notLoggedIn">Please log in to proceed<span>`
   );
+  $("a.login").show();
+  $("a.signup").show();
 }

@@ -1,59 +1,60 @@
-<div class="body">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="/images/bike.png" width="50" height="50" />
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+<div class="container box boxAdd">
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item item1" href="/index">
-                    Ride the Mountain
-                </a>
+    <div class="trail">
+        <h1 class="title is-1" id="title" data-id="{{id}}">{{name}}</h1>
 
-                <a class="navbar-item" href="#">
-                    Browse
-                </a>
-                <a class="navbar-item" href="#">
-                    Add A Trail
-                </a>
-            </div>
+        <p class="trailDetails is-small">Location: {{city}} {{state}}</br>
+            Address: {{address}} </br>
+            Added By: {{User.name}} </br>
+            <h3 class="title is-5">{{description}}</h3>
+            <button id="reviewButton" class="button is-primary">Add Review</button>
 
-
-        </div>
-    </nav>
-    <div class="container box boxAdd">
-
-        <div class="trail">
-            <h3 id="title" data-id={{id}}>Trail: {{name}}</h3>
-            <h3>State: {{state}}</h3>
-            <h3>City: {{city}}</h3>
-            <h3>Address: {{address}}</h3>
-            <h3>Create By: {{User.name}}</h3>
-            <h3>{{User.name}} said this about {{name}}: {{description}}</h3>
-        </div>
-
-        <div class="user-review">
-            <h1>Reviews</h1>
-            {{#each Reviews}}
-            <h3>{{title}}</h3>
-            <h3>{{review}}</h3>
-            <h3>{{User.name}}</h3>
-            {{/each}}
-            <div class="field">
-                <label class="label" for="description">Add a Review!</label>
-                <div class="control">
-                    <textarea class="textarea" name="review"
-                        placeholder="What do you think about this trail?"></textarea>
-                </div>
-            </div>
-        </div>
     </div>
+
+
+    <form id="newReview">
+        <div class="field">
+            <label class="label" for="title">Title</label>
+            <div class="control">
+                <input class="input" type="text" name="title" placeholder="Title" required />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="revnew">Comments / Review</label>
+            <div class="control">
+                <input class="textarea input" type="textarea" name="review"
+                    placeholder="Drop in you comments or review or upload super cool photos" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="photo">Photo</label>
+            <div class="control">
+                <span id="imageRemove">X</span>
+                <input class="input" name="photo" type="file" />
+            </div>
+        </div>
+
+        <div class="control">
+            <button id="addReview" type="submit" class="button is-primary">Drop it In</button>
+        </div>
+    </form>
+
+    <h2 class="title is-2">Reviews</h2>
+    {{#each Reviews}}
+    <div class="user-review box">
+
+        <h3 class="title is-3">{{title}}</h3>
+        <h3 class="subtitle is-6">by: {{User.name}}</h3>
+        {{#each Media}}
+        <img src="{{url}}" class="reviewImage" />
+        {{/each}}
+        <h3>{{review}}</h3>
+    </div>
+
+    {{/each}}
+    {{Reviews.Media.url}}
+
+</div>
 </div>

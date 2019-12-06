@@ -72,6 +72,9 @@ body {
 }
 
 .boxAdd {
-  width: 60%;
+  max-width: 640px;
   margin: 20px auto;
+}
+.trail {
+  margin: 2em;
 }
