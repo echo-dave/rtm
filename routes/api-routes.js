@@ -1,6 +1,7 @@
 const isAuthorized = require("../middleware/isAuthorized");
 const db = require("../database/models");
 const path = require("path");
+const tweets = require("../nodejs/twitter.js");
 module.exports = function(app) {
   //login checker
   app.get("/api/auth", isAuthorized, function(req, res) {
@@ -161,6 +162,12 @@ module.exports = function(app) {
       }
     );
     // res.json();
+  });
+  app.get("/api/tweets", function(req, res) {
+    tweets().then(function(twitterRes) {
+      console.log(twitterRes);
+      // res.json(twitterRes);
+    });
   });
 
   //new trail

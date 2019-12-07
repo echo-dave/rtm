@@ -26,7 +26,7 @@ module.exports = function(sequelize, dataTypes) {
       type: dataTypes.STRING
     },
     description: {
-      type: dataTypes.BLOB
+      type: dataTypes.TEXT
     },
     rating: {
       type: dataTypes.DECIMAL(3, 2)
