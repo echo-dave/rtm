@@ -192,9 +192,11 @@ module.exports = function(app) {
         { model: db.User, attributes: ["name"] },
         {
           model: db.Review,
-          attributes: ["title", "review"],
-          include: [{ model: db.User, attributes: ["name"] }],
-          include: [{ model: db.Media, attribues: ["url"] }]
+          attributes: ["UserId", "title", "review"],
+          include: [
+            { model: db.User, attributes: ["name"] },
+            { model: db.Media, attribues: ["url"] }
+          ]
         }
       ]
     }).then(function(trailData) {
