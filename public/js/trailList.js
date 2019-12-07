@@ -8,8 +8,12 @@ $.get("/trail/all", function(data) {
         <div class="columns is-centered">
             <div class="column">
               <div class="box trailDetails frontpagelist">
-        <h1 class="trailName title is-5">${traildata[i].name}<h1>
-            <h3 class="trailLocation subtitle is-6">${traildata[i].city},${traildata[i].state}</h3>
+       <a href="/trail/${encodeURIComponent(
+         traildata[i].name
+       )}"><h1 class="trailName title is-5">${traildata[i].name}<h1></a>
+            <h3 class="trailLocation subtitle is-6">${traildata[i].city},${
+      traildata[i].state
+    }</h3>
             <p class="trailBody">${traildata[i].description}</p>
     </div>
 </div>
