@@ -33,10 +33,14 @@ module.exports = function(sequelize, dataTypes) {
     }
   });
 
-  Trail.associate = function(models) {
+  (Trail.associate = function(models) {
     Trail.hasMany(models.Review);
     Trail.hasMany(models.Media);
     Trail.belongsTo(models.User);
-  };
+  }),
+    {
+      charset: "utf8",
+      collate: "utf8mb4_unicode_520_ci"
+    };
   return Trail;
 };
