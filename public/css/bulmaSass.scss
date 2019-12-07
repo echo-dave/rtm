@@ -1,3 +1,6 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+$mobile: 675px;
+$navbar-breakpoint: $mobile;
 $family-secondary: "Rock Salt", cursive;
 
 @import "../../node_modules/bulma/bulma.sass";
