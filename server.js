@@ -2,7 +2,7 @@ require("dotenv").config();
 const session = require("express-session");
 var cookieParser = require("cookie-parser");
 
-require("./nodejs/twitter");
+//require("./nodejs/twitter");
 
 const db = require("./database/models");
 //check environment
