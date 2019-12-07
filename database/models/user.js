@@ -1,29 +1,22 @@
 const bcrypt = require("bcrypt");
 module.exports = function(sequelize, dataTypes) {
-  const User = sequelize.define(
-    "User",
-    {
-      name: {
-        type: dataTypes.STRING,
-        allowNull: false,
-        unique: true
-      },
-      photo: {
-        type: dataTypes.INTEGER
-      },
-      pass: {
-        type: dataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [5, 50]
-        }
-      }
+  const User = sequelize.define("User", {
+    name: {
+      type: dataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
-    {
-      charset: "utf8",
-      collate: "utf8mb4_unicode_520_ci"
+    photo: {
+      type: dataTypes.INTEGER
+    },
+    pass: {
+      type: dataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5, 50]
+      }
     }
-  );
+  });
 
   User.beforeCreate(user => {
     const saltRounds = 10;
