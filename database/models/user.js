@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-module.exports = function (sequelize, dataTypes) {
+module.exports = function(sequelize, dataTypes) {
   const User = sequelize.define("User", {
     name: {
       type: dataTypes.STRING,
@@ -25,11 +25,11 @@ module.exports = function (sequelize, dataTypes) {
     });
   });
 
-  User.prototype.validPassword = async function (pass) {
+  User.prototype.validPassword = async function(pass) {
     return await bcrypt.compare(pass, this.pass);
-  }
+  };
 
-  User.associate = function (models) {
+  User.associate = function(models) {
     User.hasMany(models.Media);
     User.hasMany(models.Review);
     User.hasMany(models.Trail);

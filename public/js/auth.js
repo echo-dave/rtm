@@ -86,14 +86,6 @@ $("#loginForm").on("submit", function(event) {
   });
 });
 
-function setWhoYouAre(res) {
-  localStorage.setItem("uName", res.userName);
-}
-
-function whoAreYou(res) {
-  $("div.buttons").append(localStorage.getItem("uName"));
-}
-
 //are you logged in
 $.get("/api/auth", function(res) {
   console.log(res);
@@ -102,5 +94,43 @@ $.get("/api/auth", function(res) {
     $("a.login").hide();
     $("a.signup").hide();
     whoAreYou(res);
+  }
+});
+
+//login identifier
+function setWhoYouAre(res) {
+  localStorage.setItem("uName", res.userName);
+}
+
+function whoAreYou(res) {
+  $("div.buttons").append(localStorage.getItem("uName"));
+}
+
+//modals and mobile menu toggle
+
+//signup modal
+$(".signup").click(function() {
+  $("#modal1").addClass("is-active");
+});
+$(".modal-close, .modal-background").click(function() {
+  $("#modal1").removeClass("is-active");
+});
+//login modal
+$(".login").click(function() {
+  $("#modal2").addClass("is-active");
+});
+$(".modal-close, .modal-background").click(function() {
+  $("#modal2").removeClass("is-active");
+});
+
+//close modals
+
+$("#burger").click(function() {
+  if ($(".navbar-menu").hasClass("is-active")) {
+    $(".navbar-menu").removeClass("is-active");
+    //console.log("hello");
+  } else {
+    //console.log("go away");
+    $(".navbar-menu").addClass("is-active");
   }
 });

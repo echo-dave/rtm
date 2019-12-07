@@ -1,4 +1,4 @@
-<div class="container  boxAdd">
+<div class="container  boxAdd hbarwrap">
 
     <div class="trail box">
         <h1 class="title is-1" id="title" data-id="{{id}}">{{name}}</h1>
@@ -46,7 +46,7 @@
     <div class="user-review box">
 
         <h3 class="title is-3">{{title}}</h3>
-        <h3 class="subtitle is-6">by: {{../User.name}}</h3>
+        <h3 class="subtitle is-6">by: {{User.name}}</h3>
         {{#each Media}}
         <img src="{{url}}" class="reviewImage" />
         {{/each}}
@@ -56,5 +56,4 @@
     {{/each}}
     {{Reviews.Media.url}}
 
-</div>
 </div>
