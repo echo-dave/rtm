@@ -8,6 +8,8 @@ module.exports = function() {
   });
   return new Promise(function(resolve, reject) {
     client.get("search/tweets", { q: "Mountain Biking" }, function(err, res) {
+      //console.log(res);
+
       if (err) {
         reject(err);
       }
@@ -17,8 +19,12 @@ module.exports = function() {
         if (tweet.entities.media) {
           tweetLoop.push(tweet.text);
           tweetImgloop.push(tweet.entities.media[0].media_url);
+          console.log("have media");
+        } else {
+          console.log("no media");
         }
       });
+
       resolve([tweetLoop, tweetImgloop]);
     });
   });
