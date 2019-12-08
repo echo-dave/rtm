@@ -2,6 +2,7 @@ module.exports = function(sequelize, dataTypes) {
   const Trail = sequelize.define("Trail", {
     name: {
       type: dataTypes.STRING,
+      unique: true,
       allowNull: false,
       unique: true,
       validate: {

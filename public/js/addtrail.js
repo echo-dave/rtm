@@ -32,4 +32,5 @@ function uError() {
   );
   $("a.login").show();
   $("a.signup").show();
+  $("#modal2").addClass("is-active");
 }

@@ -110,20 +110,31 @@ function whoAreYou(res) {
 
 //signup modal
 $(".signup").click(function() {
-  $("#modal1").addClass("is-active");
+  if ($("#modal1").hasClass("is-active")) {
+    $("#modal1").removeClass("is-active");
+  } else {
+    $("#modal1").addClass("is-active");
+  }
 });
+
 $(".modal-close, .modal-background").click(function() {
-  $("#modal1").removeClass("is-active");
+  $(".modal").removeClass("is-active");
 });
+
 //login modal
 $(".login").click(function() {
-  $("#modal2").addClass("is-active");
-});
-$(".modal-close, .modal-background").click(function() {
-  $("#modal2").removeClass("is-active");
+  if ($("#modal2").hasClass("is-active")) {
+    $("#modal2").removeClass("is-active");
+  } else {
+    $("#modal2").addClass("is-active");
+  }
 });
 
 //close modals
+
+$(".modal-close, .modal-background").click(function() {
+  $("#modal2").removeClass("is-active");
+});
 
 $("#burger").click(function() {
   if ($(".navbar-menu").hasClass("is-active")) {
