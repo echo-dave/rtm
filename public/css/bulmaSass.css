@@ -9443,6 +9443,7 @@ form {
 
 .user-review {
   margin: 1rem 2rem;
+  white-space: pre-wrap;
 }
 
 .trailBody,

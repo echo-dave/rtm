@@ -30,7 +30,8 @@ $("#newReview").on("submit", function(e) {
   }).then(function(res) {
     console.log(res);
     // window.location.href = res.resourceURL;
-    $("newReview").hide();
+    $("#newReview").hide();
+    location.reload(true);
   });
 });
 
@@ -40,6 +41,7 @@ function uError() {
   );
   $("a.login").show();
   $("a.signup").show();
+  $("#modal2").addClass("is-active");
 }
 
 $("#reviewButton").on("click", function(e) {
