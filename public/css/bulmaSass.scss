@@ -1,4 +1,3 @@
-@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
 $mobile: 675px;
 $navbar-breakpoint: $mobile;
 $family-secondary: "Rock Salt", cursive;
@@ -107,6 +106,8 @@ form {
 }
 .user-review {
   margin: 1rem 2rem;
+}
+.reviewText {
   white-space: pre-wrap;
 }
 
