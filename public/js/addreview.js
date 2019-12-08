@@ -30,7 +30,8 @@ $("#newReview").on("submit", function(e) {
   }).then(function(res) {
     console.log(res);
     // window.location.href = res.resourceURL;
-    $("newReview").hide();
+    $("#newReview").hide();
+    location.reload(true);
   });
 });
 

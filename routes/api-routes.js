@@ -163,13 +163,14 @@ module.exports = function(app) {
     );
     // res.json();
   });
+  /*   
   app.get("/api/tweets", function(req, res) {
     tweets().then(function(twitterRes) {
       console.log(twitterRes);
-      // res.json(twitterRes);
+      res.json(twitterRes);
     });
   });
-
+ */
   //new trail
 
   app.post("/api/trail/new", isAuthorized, function(req, res) {

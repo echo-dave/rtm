@@ -7,8 +7,9 @@ module.exports = function() {
     bearer_token: process.env.bearerToken
   });
   return new Promise(function(resolve, reject) {
-    client.get("search/tweets", { q: "Mountain Biking" }, function(err, res) {
+    client.get("search/tweets", { q: "#biking has:media" }, function(err, res) {
       //console.log(res);
+      console.log(res.statuses);
 
       if (err) {
         reject(err);
