@@ -9491,7 +9491,7 @@ form {
   box-shadow: none;
 }
 
-.item1 {
+.trailListTitle {
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   z-index: 10;
