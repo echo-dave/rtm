@@ -72,7 +72,6 @@ $("#signUpForm").on("submit", function(e) {
 
 $("#loginForm").on("submit", function(event) {
   event.preventDefault();
-  console.log($(this).serialize());
 
   $.post("/api/auth/login", $(this).serialize(), function(res) {
     console.log(res);
@@ -82,6 +81,10 @@ $("#loginForm").on("submit", function(event) {
       $("#notLoggedIn").remove();
       $("a.login").hide();
       $("a.signup").hide();
+    } else {
+      $("#modal2 label[for=pass]").append(
+        `<h3 class='badPass'>Bad Password</h3>`
+      );
     }
   });
 });
