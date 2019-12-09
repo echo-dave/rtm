@@ -1,7 +1,5 @@
 $.get("/trail/all", function(data) {
-  console.log(data);
   let traildata = data;
-  console.log(traildata);
 
   for (let i = 0; i < traildata.length; i++) {
     $("#trail-list").append(`

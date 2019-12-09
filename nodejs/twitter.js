@@ -7,26 +7,30 @@ module.exports = function() {
     bearer_token: process.env.bearerToken
   });
   return new Promise(function(resolve, reject) {
-    client.get("search/tweets", { q: "#biking has:media" }, function(err, res) {
-      //console.log(res);
-      console.log(res.statuses);
+    client.get(
+      "search/tweets",
+      { q: "mountain biking", has: "media" },
+      function(err, res) {
+        //console.log(res);
+        console.log(res.statuses);
 
-      if (err) {
-        reject(err);
-      }
-      let tweetLoop = [];
-      let tweetImgloop = [];
-      res.statuses.forEach(function(tweet) {
-        if (tweet.entities.media) {
-          tweetLoop.push(tweet.text);
-          tweetImgloop.push(tweet.entities.media[0].media_url);
-          console.log("have media");
-        } else {
-          console.log("no media");
+        if (err) {
+          reject(err);
         }
-      });
+        let tweetLoop = [];
+        let tweetImgloop = [];
+        res.statuses.forEach(function(tweet) {
+          if (tweet.entities.media) {
+            tweetLoop.push(tweet.text);
+            tweetImgloop.push(tweet.entities.media[0].media_url);
+            // console.log("have media");
+          } else {
+            // console.log("no media");
+          }
+        });
 
-      resolve([tweetLoop, tweetImgloop]);
-    });
+        resolve([tweetLoop, tweetImgloop]);
+      }
+    );
   });
 };
