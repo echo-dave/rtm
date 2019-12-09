@@ -12,7 +12,8 @@ module.exports = function(app) {
     db.Trail.findAll({
       limit: 10,
       attributes: ["name", "city", "state", "description"],
-      include: [{ model: db.User, attributes: ["name"] }]
+      include: [{ model: db.User, attributes: ["name"] }],
+      order: [["name", "ASC"]]
     }).then(function(trails) {
       res.json(trails);
     });
@@ -21,7 +22,8 @@ module.exports = function(app) {
     db.Trail.findAll({
       limit: 5,
       attributes: ["name", "city", "state", "description"],
-      include: [{ model: db.User, attributes: ["name"] }]
+      include: [{ model: db.User, attributes: ["name"] }, { model: db.Review }],
+      order: [[db.Review, "createdAt", "DESC"]]
     }).then(function(trails) {
       res.json(trails);
     });
