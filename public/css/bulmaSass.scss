@@ -79,6 +79,20 @@ form {
   font-weight: 300;
 }
 
+.is-sidebar .trailDetails {
+  margin-top: 1rem;
+  font-size: 0.9em;
+  font-weight: 300;
+  padding-bottom: 1rem;
+}
+.trailCols {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+#recent-trailList .trailCols:last-of-type {
+  border: none;
+}
+
 .trail {
   h1,
   h2,
@@ -130,4 +144,15 @@ form {
 
 .twitter {
   margin-top: 1.2rem;
+}
+
+#recentTrails {
+  box-shadow: none;
+}
+
+.item1 {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  z-index: 10;
+  position: relative;
 }
