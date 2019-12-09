@@ -10,7 +10,6 @@ module.exports = function(app) {
   });
   app.get("/trail/all", function(req, res) {
     db.Trail.findAll({
-      limit: 10,
       attributes: ["name", "city", "state", "description"],
       include: [{ model: db.User, attributes: ["name"] }],
       order: [["name", "ASC"]]
