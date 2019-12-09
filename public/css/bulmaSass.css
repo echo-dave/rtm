@@ -9498,4 +9498,13 @@ form {
   position: relative;
 }
 
+.badPass {
+  position: relative;
+  top: 6.2rem;
+  left: 7rem;
+  z-index: 10;
+  color: red;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=bulmaSass.css.map */
