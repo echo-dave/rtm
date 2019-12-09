@@ -12,7 +12,7 @@ module.exports = function() {
       { q: "mountain biking", has: "media" },
       function(err, res) {
         //console.log(res);
-        console.log(res.statuses);
+        // console.log(res.statuses);
 
         if (err) {
           reject(err);
