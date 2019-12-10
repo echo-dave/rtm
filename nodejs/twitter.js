@@ -9,7 +9,7 @@ module.exports = function() {
   return new Promise(function(resolve, reject) {
     client.get(
       "search/tweets",
-      { q: "mountain biking", has: "media" },
+      { q: "filter:media mountain biking -filter:retweets" },
       function(err, res) {
         //console.log(res);
         // console.log(res.statuses);

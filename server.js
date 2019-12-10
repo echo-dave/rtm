@@ -45,7 +45,6 @@ let options = {
   dotfiles: "ignore",
   etag: false,
   extensions: ["html"],
-  maxAge: "1d",
   redirect: false
 };
 
