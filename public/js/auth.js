@@ -1,3 +1,16 @@
+//mobile menu toggle
+$(document).ready(function() {
+  $("#burger").on("click", function(e) {
+    if ($(".navbar-menu").hasClass("is-active")) {
+      $(".navbar-menu").removeClass("is-active");
+      //console.log("hello");
+    } else {
+      //console.log("go away");
+      $(".navbar-menu").addClass("is-active");
+    }
+  });
+});
+
 $("#imageRemove").on("click", function(e) {
   $("input[name=photo]").val(null);
 });
@@ -109,7 +122,7 @@ function whoAreYou(res) {
   $("div.buttons").append(localStorage.getItem("uName"));
 }
 
-//modals and mobile menu toggle
+//modals
 
 //signup modal
 $(".signup").click(function() {
@@ -137,14 +150,4 @@ $(".login").click(function() {
 
 $(".modal-close, .modal-background").click(function() {
   $("#modal2").removeClass("is-active");
-});
-
-$("#burger").click(function() {
-  if ($(".navbar-menu").hasClass("is-active")) {
-    $(".navbar-menu").removeClass("is-active");
-    //console.log("hello");
-  } else {
-    //console.log("go away");
-    $(".navbar-menu").addClass("is-active");
-  }
 });
