@@ -125,7 +125,7 @@ function whoAreYou(res) {
 //modals
 
 //signup modal
-$(".signup").on("click", function() {
+$("#signup").on("click", function() {
   if ($("#modal1").hasClass("is-active")) {
     $("#modal1").removeClass("is-active");
   } else {
@@ -138,7 +138,7 @@ $(".modal-close, .modal-background").on("click", function() {
 });
 
 //login modal
-$(".login").on("click", function() {
+$("#login").on("click", function() {
   if ($("#modal2").hasClass("is-active")) {
     $("#modal2").removeClass("is-active");
   } else {
