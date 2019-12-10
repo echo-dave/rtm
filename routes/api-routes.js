@@ -8,6 +8,7 @@ module.exports = function(app) {
   app.get("/api/auth", isAuthorized, function(req, res) {
     res.json({ status: "authorized" });
   });
+  //all trail
   app.get("/trail/all", function(req, res) {
     db.Trail.findAll({
       attributes: ["name", "city", "state", "description"],
@@ -17,6 +18,7 @@ module.exports = function(app) {
       res.json(trails);
     });
   });
+  //recent reviewed
   app.get("/trail/recent", function(req, res) {
     db.Trail.findAll({
       limit: 5,
@@ -26,6 +28,25 @@ module.exports = function(app) {
     }).then(function(trails) {
       res.json(trails);
     });
+  });
+  //search
+  app.get("/search/trails", function(req, res) {
+    console.log(req.query.search);
+    db.Trail.findAll({
+      where: {
+        name: {
+          [op.like]: "%" + req.query.search + "%"
+        }
+      }
+    })
+      .then(function(trail) {
+        console.log(trail);
+
+        res.json(trail);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   });
 
   app.post("/api/auth/newuser", function(req, res) {
