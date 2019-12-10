@@ -3,11 +3,14 @@ const db = require("../database/models");
 const path = require("path");
 const tweets = require("../nodejs/twitter.js");
 const cloud = require("../nodejs/cloudinaryUp");
+const Sequelize = require("sequelize");
+const op = Sequelize.Op;
 module.exports = function(app) {
   //login checker
   app.get("/api/auth", isAuthorized, function(req, res) {
     res.json({ status: "authorized" });
   });
+  //all trail
   app.get("/trail/all", function(req, res) {
     db.Trail.findAll({
       attributes: ["name", "city", "state", "description"],
@@ -17,6 +20,7 @@ module.exports = function(app) {
       res.json(trails);
     });
   });
+  //recent reviewed
   app.get("/trail/recent", function(req, res) {
     db.Trail.findAll({
       limit: 5,
@@ -26,6 +30,29 @@ module.exports = function(app) {
     }).then(function(trails) {
       res.json(trails);
     });
+  });
+  //search
+  app.get("/search/:search", function(req, res) {
+    // console.log(req.query.search);
+    console.log(req.params.search);
+
+    db.Trail.findAll({
+      where: {
+        name: {
+          [op.like]: "%" + req.params.search + "%"
+        }
+      }
+    })
+      .then(function(trailSearch) {
+        console.log(trailSearch);
+
+        res.render("search", { data: trailSearch });
+
+        // res.json(trail);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   });
 
   app.post("/api/auth/newuser", function(req, res) {

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add A Trail</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/bulmaSass.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <title>Trails</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 
                     <div class="navbar-brand">
                         <a href="/" class="navbar-item">
-                            <img src="/images/bike.png" width="50" height="50" />
+                            <img src="images/bike.png" width="50" height="50" />
                         </a>
                         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                             data-target="navbarBasicExample" id="burger">
@@ -69,7 +69,17 @@
                 </nav>
             </div>
         </div>
-        {{{ body }}}
+        <div class="container">
+            <form id="findTrails" method="POST">
+
+                <input type="text" id="search" name="trailSearch">
+                <input type="submit" name="submit">
+            </form>
+        </div>
+        <div class="container" id="searchResults">
+
+
+        </div>
 
         <div class="modal" id="modal1">
             <div class="modal-background"></div>
@@ -94,9 +104,6 @@
                                 pattern=".{12,}" />
                         </div>
                     </div>
-                    <!-- </form>
-                <form id=formUploader method=" POST" action="/upload" enctype="multipart/form-data"> -->
-
                     <div class="field">
                         <label class="label" for="photo">Photo</label>
                         <div class="control">
@@ -116,6 +123,11 @@
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
         </div>
+
+
+
+        <!---------------------------------------->
+
         <div class="modal" id="modal2">
             <div class="modal-background"></div>
             <div class="modal-content box">
@@ -152,15 +164,16 @@
             <button class="modal-close is-large" aria-label="close"></button>
         </div>
 
+
         <footer class="page-footer">
             <div class="footer-copyright text-center py-3">
                 © Copyright Purple Team
             </div>
         </footer>
     </div>
-    <script src="/js/auth.js"></script>
-    <script src="/js/addreview.js"></script>
-    <script src="/js/search.js"></script>
+    </div>
+    <script src="js/search.js"></script>
+    <script src="js/auth.js"></script>
 
 </body>
 
