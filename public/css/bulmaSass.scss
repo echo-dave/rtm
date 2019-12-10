@@ -164,3 +164,15 @@ form {
   color: red;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 500px) {
+  .trail {
+    margin: 2em 1rem !important;
+  }
+  .user-review {
+    margin: 1rem;
+  }
+  .reviewHead {
+    left: -1.5rem;
+  }
+}
