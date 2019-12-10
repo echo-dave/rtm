@@ -125,7 +125,7 @@ function whoAreYou(res) {
 //modals
 
 //signup modal
-$(".signup").click(function() {
+$(".signup").on("click", function() {
   if ($("#modal1").hasClass("is-active")) {
     $("#modal1").removeClass("is-active");
   } else {
@@ -133,12 +133,12 @@ $(".signup").click(function() {
   }
 });
 
-$(".modal-close, .modal-background").click(function() {
+$(".modal-close, .modal-background").on("click", function() {
   $(".modal").removeClass("is-active");
 });
 
 //login modal
-$(".login").click(function() {
+$(".login").on("click", function() {
   if ($("#modal2").hasClass("is-active")) {
     $("#modal2").removeClass("is-active");
   } else {
@@ -148,6 +148,6 @@ $(".login").click(function() {
 
 //close modals
 
-$(".modal-close, .modal-background").click(function() {
+$(".modal-close, .modal-background").on("click", function() {
   $("#modal2").removeClass("is-active");
 });
