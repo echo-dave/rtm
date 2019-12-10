@@ -9381,7 +9381,7 @@ form {
   position: absolute;
   right: 1rem;
   top: 0.3rem;
-  z-index: 100;
+  z-index: 2;
   padding: 0.1rem 0.7rem;
   border: 1px solid grey;
   border-radius: 0.25rem;
@@ -9413,13 +9413,13 @@ form {
 .trailDetails {
   margin-top: -1em;
   font-size: 0.9em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .is-sidebar .trailDetails {
   margin-top: 1rem;
   font-size: 0.9em;
-  font-weight: 300;
+  font-weight: 400;
   padding-bottom: 1rem;
 }
 
@@ -9505,6 +9505,20 @@ form {
   z-index: 10;
   color: red;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+  .trail {
+    margin: 2em 1rem !important;
+  }
+
+  .user-review {
+    margin: 1rem;
+  }
+
+  .reviewHead {
+    left: -1.5rem;
+  }
 }
 
 /*# sourceMappingURL=bulmaSass.css.map */
