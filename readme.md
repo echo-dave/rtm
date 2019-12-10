@@ -1,6 +1,6 @@
 # Ride the Mountain
 
-Ride the Mountain is a prototype mountain bike trail review site meant to be responsive and easy on the eyes. To the left we have some mountain biking related tweets along with recently added trails. To the right is our full trail list sorted alphabetically. Search is currently in alpha state and not yet ready for public testing. The current authentication system collect email address as a design choice for demonstration purposes - so you need not worry about being spammed. The flip side is we can't reset your password either. We may change our position at a later date.
+Ride the Mountain is a prototype mobile first mountain bike trail review site meant to be responsive and easy on the eyes. To the left we have some mountain biking related tweets along with recently added trails. To the right is our full trail list sorted alphabetically. Search is currently in alpha state and not yet ready for public testing. The current authentication system collect email address as a design choice for demonstration purposes - so you need not worry about being spammed. The flip side is we can't reset your password either. We may change our position at a later date.
 
 ## Technology
 
@@ -12,6 +12,23 @@ Ride the Mountain is a prototype mountain bike trail review site meant to be res
 - Cloudinary for persistent image storage
 - Bulma sass for front end design and layout with jQuery
 - Express-Handlebars for templating our trail pages.
+
+## Database
+
+Our database consists of 4 models:
+
+- User
+- Table
+- Review
+- Media
+
+The various associations allow us to relate:
+
+1. media to both users and reviews
+2. reviews to trails and users
+3. trails to users
+
+This allows us to keep everything organized and accessible so we can track who created what and allow access as needed.
 
 ## Challenges
 
