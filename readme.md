@@ -34,5 +34,5 @@ This allows us to keep everything organized and accessible so we can track who c
 
 Working through building out the authentication with cookies, forms, database, and local storage components was a bigger job than anticipated. A lot was learned in the process of writing most of our own authentication and verication methods with noteable exceptions of Bcrypt and Express-sessions. Additionally we hadn't considered the ephemeral storage of Heroku as being a major problem to solve as we weren't actually aware of the situation initially. Settling Cloudinary as our solution and then working with the SDK took time to test and debug and fit into existing code, but was a worth while experience.
 
-![homePage](readmeImgs/home.png)
-![trails](readmeImgs/trail.png)
+![homePage](readmeImgs/home.jpg)
+![trails](readmeImgs/trail.jpg)
