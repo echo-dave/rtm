@@ -1,0 +1,14 @@
+<div class="container  boxAdd hbarwrap">
+    {{#each data}}
+    <div class="trail box">
+        <a href="/trail/{{name}}">
+            <h1 class="title is-1" id="title" data-id="{{id}}">{{name}}</h1>
+        </a>
+        <p class="trailDetails is-small">Location: {{city}}, {{state}}</br>
+            Address: {{address}} </br>
+            {{!-- Added By: {{User.name}} </br> --}}
+            <p class="trailDescription">{{description}}</p>
+
+    </div>
+    {{/each}}
+</div>

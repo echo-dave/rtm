@@ -1,15 +1,14 @@
 $("#findTrails").on("click", function(e) {
   e.preventDefault();
+
   //console.log($("#search").val());
-  let searchQ = {};
-  searchQ.search = document.querySelector("#search").value;
-  console.log(searchQ);
+  let searchQ;
+  // searchQ.search = document.querySelector("#search").value;
+  searchQ = $("#search").val();
 
-  $.get("/search/trails", searchQ, function(trails) {
-    console.log(trails);
-
-    $("#searchResults").append(`
-<h2>${trails[0].name}</h2>
-<h3>${trails[0].description}</h3>`);
-  });
+  if (searchQ.length == 0) {
+    window.location = `/search/%20`;
+  } else {
+    window.location = `/search/${encodeURIComponent(searchQ)}`;
+  }
 });

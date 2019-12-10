@@ -3,6 +3,8 @@ const db = require("../database/models");
 const path = require("path");
 const tweets = require("../nodejs/twitter.js");
 const cloud = require("../nodejs/cloudinaryUp");
+const Sequelize = require("sequelize");
+const op = Sequelize.Op;
 module.exports = function(app) {
   //login checker
   app.get("/api/auth", isAuthorized, function(req, res) {
@@ -30,19 +32,23 @@ module.exports = function(app) {
     });
   });
   //search
-  app.get("/search/trails", function(req, res) {
-    console.log(req.query.search);
+  app.get("/search/:search", function(req, res) {
+    // console.log(req.query.search);
+    console.log(req.params.search);
+
     db.Trail.findAll({
       where: {
         name: {
-          [op.like]: "%" + req.query.search + "%"
+          [op.like]: "%" + req.params.search + "%"
         }
       }
     })
-      .then(function(trail) {
-        console.log(trail);
+      .then(function(trailSearch) {
+        console.log(trailSearch);
 
-        res.json(trail);
+        res.render("search", { data: trailSearch });
+
+        // res.json(trail);
       })
       .catch(function(err) {
         console.log(err);
