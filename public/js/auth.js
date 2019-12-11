@@ -133,10 +133,6 @@ $("#signup").on("click", function() {
   }
 });
 
-$(".modal-close, .modal-background").on("click", function() {
-  $(".modal").removeClass("is-active");
-});
-
 //login modal
 $("#login").on("click", function() {
   if ($("#modal2").hasClass("is-active")) {
@@ -149,5 +145,5 @@ $("#login").on("click", function() {
 //close modals
 
 $(".modal-close, .modal-background").on("click", function() {
-  $("#modal2").removeClass("is-active");
+  $(".modal").removeClass("is-active");
 });
