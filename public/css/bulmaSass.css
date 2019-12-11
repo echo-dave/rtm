@@ -5407,7 +5407,7 @@ a.list-item {
 .navbar.is-white .navbar-burger {
   color: #0a0a0a;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-white .navbar-start > .navbar-item,
 .navbar.is-white .navbar-start .navbar-link,
 .navbar.is-white .navbar-end > .navbar-item,
@@ -5463,7 +5463,7 @@ a.list-item {
 .navbar.is-black .navbar-burger {
   color: white;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-black .navbar-start > .navbar-item,
 .navbar.is-black .navbar-start .navbar-link,
 .navbar.is-black .navbar-end > .navbar-item,
@@ -5519,7 +5519,7 @@ a.list-item {
 .navbar.is-light .navbar-burger {
   color: rgba(0, 0, 0, 0.7);
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-light .navbar-start > .navbar-item,
 .navbar.is-light .navbar-start .navbar-link,
 .navbar.is-light .navbar-end > .navbar-item,
@@ -5575,7 +5575,7 @@ a.list-item {
 .navbar.is-dark .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-dark .navbar-start > .navbar-item,
 .navbar.is-dark .navbar-start .navbar-link,
 .navbar.is-dark .navbar-end > .navbar-item,
@@ -5631,7 +5631,7 @@ a.list-item {
 .navbar.is-primary .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-primary .navbar-start > .navbar-item,
 .navbar.is-primary .navbar-start .navbar-link,
 .navbar.is-primary .navbar-end > .navbar-item,
@@ -5687,7 +5687,7 @@ a.list-item {
 .navbar.is-link .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-link .navbar-start > .navbar-item,
 .navbar.is-link .navbar-start .navbar-link,
 .navbar.is-link .navbar-end > .navbar-item,
@@ -5743,7 +5743,7 @@ a.list-item {
 .navbar.is-info .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-info .navbar-start > .navbar-item,
 .navbar.is-info .navbar-start .navbar-link,
 .navbar.is-info .navbar-end > .navbar-item,
@@ -5799,7 +5799,7 @@ a.list-item {
 .navbar.is-success .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-success .navbar-start > .navbar-item,
 .navbar.is-success .navbar-start .navbar-link,
 .navbar.is-success .navbar-end > .navbar-item,
@@ -5855,7 +5855,7 @@ a.list-item {
 .navbar.is-warning .navbar-burger {
   color: rgba(0, 0, 0, 0.7);
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-warning .navbar-start > .navbar-item,
 .navbar.is-warning .navbar-start .navbar-link,
 .navbar.is-warning .navbar-end > .navbar-item,
@@ -5911,7 +5911,7 @@ a.list-item {
 .navbar.is-danger .navbar-burger {
   color: #fff;
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar.is-danger .navbar-start > .navbar-item,
 .navbar.is-danger .navbar-start .navbar-link,
 .navbar.is-danger .navbar-end > .navbar-item,
@@ -6138,7 +6138,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   margin: 0.5rem 0;
 }
 
-@media screen and (max-width: 674px) {
+@media screen and (max-width: 919px) {
   .navbar > .container {
     display: block;
   }
@@ -6192,7 +6192,7 @@ body.has-navbar-fixed-bottom-touch {
     padding-bottom: 3.25rem;
   }
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 920px) {
   .navbar,
 .navbar-menu,
 .navbar-start,
