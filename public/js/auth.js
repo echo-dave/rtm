@@ -1,14 +1,12 @@
 //mobile menu toggle
-$(document).ready(function() {
-  $("#burger").on("click", function(e) {
-    if ($(".navbar-menu").hasClass("is-active")) {
-      $(".navbar-menu").removeClass("is-active");
-      //console.log("hello");
-    } else {
-      //console.log("go away");
-      $(".navbar-menu").addClass("is-active");
-    }
-  });
+$("#burger").on("click", function(e) {
+  if ($(".navbar-menu").hasClass("is-active")) {
+    $(".navbar-menu").removeClass("is-active");
+    //console.log("hello");
+  } else {
+    //console.log("go away");
+    $(".navbar-menu").addClass("is-active");
+  }
 });
 
 $("#imageRemove").on("click", function(e) {
@@ -88,6 +86,9 @@ $("#loginForm").on("submit", function(event) {
 
   $.post("/api/auth/login", $(this).serialize(), function(res) {
     console.log(res);
+    //clear password messages
+    $(".badPass").remove();
+
     if (res.status == "success") {
       setWhoYouAre(res);
       $("#modal2").removeClass("is-active");
@@ -107,8 +108,8 @@ $.get("/api/auth", function(res) {
   console.log(res);
 
   if (res.status == "authorized") {
-    $("a.login").hide();
-    $("a.signup").hide();
+    $("button.login").hide();
+    $("button.signup").hide();
     whoAreYou(res);
   }
 });
