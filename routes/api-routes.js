@@ -38,8 +38,14 @@ module.exports = function(app) {
 
     db.Trail.findAll({
       where: {
-        name: {
-          [op.like]: "%" + req.params.search + "%"
+        [op.or]: {
+          name: {
+            [op.like]: "%" + req.params.search + "%"
+          },
+          city: {
+            [op.like]: "%" + req.params.search + "%"
+          },
+          state: req.params.search
         }
       }
     })
