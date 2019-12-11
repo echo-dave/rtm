@@ -1,6 +1,6 @@
 # Ride the Mountain
 
-Ride the Mountain is a prototype mobile first mountain bike trail review site meant to be responsive and easy on the eyes. To the left we have some mountain biking related tweets along with recently added trails. To the right is our full trail list sorted alphabetically. Search is currently in alpha state and not yet ready for public testing. The current authentication system collect email address as a design choice for demonstration purposes - so you need not worry about being spammed. The flip side is we can't reset your password either. We may change our position at a later date.
+Ride the Mountain is a prototype mobile first mountain bike trail review site meant to be responsive and easy on the eyes. To the left we have some mountain biking related tweets along with recently added trails. To the right is our full trail list sorted alphabetically. Search is now available looking in trail name, city, and state. The current authentication system does not collect email address as a design choice for demonstration purposes - so you need not worry about being spammed. The flip side is we can't reset your password either. We may change our position at a later date.
 
 ## Technology
 
