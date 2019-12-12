@@ -9507,6 +9507,13 @@ form {
   font-weight: bold;
 }
 
+.column.twitter img {
+  max-height: 245px;
+  text-align: center;
+  margin: auto !important;
+  display: block;
+}
+
 @media only screen and (max-width: 500px) {
   .trail {
     margin: 2em 1rem !important;
