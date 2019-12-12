@@ -1,3 +1,6 @@
+import { responsive } from "/js/responsive.js";
+responsive();
+
 //mobile menu toggle
 $("#burger").on("click", function(e) {
   if ($(".navbar-menu").hasClass("is-active")) {
