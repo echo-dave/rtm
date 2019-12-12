@@ -9350,6 +9350,10 @@ h3 {
   padding: 0.5em 0 0.5em 0.5em;
 }
 
+.is-heading-box {
+  text-align: center;
+}
+
 .is-sidebar {
   margin-top: 0;
   margin-bottom: 0;
