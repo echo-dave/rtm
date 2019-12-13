@@ -121,6 +121,12 @@ form {
 }
 .user-review {
   margin: 1rem 2rem;
+  .subtitle {
+    margin-left: 2rem;
+  }
+  .title {
+    margin-left: 1rem;
+  }
 }
 .reviewText {
   white-space: pre-wrap;
