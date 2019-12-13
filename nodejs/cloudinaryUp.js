@@ -28,7 +28,7 @@ module.exports = function(filename) {
       console.log("* " + image.public_id);
       console.log("* " + image.url);
       console.log(image);
-      return image.eager[0].url;
+      return image.eager[0].secure_url;
       //   resolve(image)
     })
     .catch(function(err) {
