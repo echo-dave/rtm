@@ -31,7 +31,7 @@ app.use(
   session({
     name: "cookiemonsterc",
     // key: "user_sid",
-    secret: "davelikescookies",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
