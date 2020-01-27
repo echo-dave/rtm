@@ -5,9 +5,7 @@ responsive();
 $("#burger").on("click", function(e) {
   if ($(".navbar-menu").hasClass("is-active")) {
     $(".navbar-menu").removeClass("is-active");
-    //console.log("hello");
   } else {
-    //console.log("go away");
     $(".navbar-menu").addClass("is-active");
   }
 });
@@ -68,14 +66,10 @@ $("#signUpForm").on("submit", function(e) {
         }
       }
     }).then(function(res) {
-      //console.log(res.status);
-
       if (res.redirect) {
         setWhoYouAre(res);
-        console.log("is redirect");
         window.location = res.redirect;
       }
-      console.log(res);
     });
   } else {
     $("label[for=passTest").before(
@@ -88,7 +82,6 @@ $("#loginForm").on("submit", function(event) {
   event.preventDefault();
 
   $.post("/api/auth/login", $(this).serialize(), function(res) {
-    console.log(res);
     //clear password messages
     $(".badPass").remove();
 
@@ -107,15 +100,15 @@ $("#loginForm").on("submit", function(event) {
 });
 
 //are you logged in
-$.get("/api/auth", function(res) {
-  console.log(res);
-
-  if (res.status == "authorized") {
-    $("button.login").hide();
-    $("button.signup").hide();
-    whoAreYou(res);
-  }
-});
+$.get("/api/auth")
+  .then(function(res) {
+    if (res.status == "authorized") {
+      $("button.login").hide();
+      $("button.signup").hide();
+      whoAreYou(res);
+    }
+  })
+  .catch(err => console.log(err.status, err.responseText));
 
 //login identifier
 function setWhoYouAre(res) {

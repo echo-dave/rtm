@@ -5,10 +5,7 @@ $("#findTrails").on("click", function(e) {
 });
 
 $("#search").on("keydown", function(e) {
-  console.log("key");
-
   if (e.key == "Enter") {
-    console.log("return");
     runSearch(e);
   }
 });
