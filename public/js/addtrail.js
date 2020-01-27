@@ -12,7 +12,6 @@ $("#newTrail").on("submit", function(e) {
     contentType: false,
     type: "POST",
     error: function(req, status, err) {
-      console.log(status);
       if (err == "Unauthorized") {
         uError();
       }
@@ -21,7 +20,6 @@ $("#newTrail").on("submit", function(e) {
   }).then(function(res) {
     //console.log(xhr.responseJSON);
 
-    console.log(res);
     window.location.href = res.resourceURL;
   });
 });

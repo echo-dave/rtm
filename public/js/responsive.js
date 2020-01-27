@@ -1,6 +1,3 @@
-/* #site-heading-column
-#aside-column
-window.innerWidth 778px */
 export function responsive() {
   $(document).ready(function() {
     collapseColumn();

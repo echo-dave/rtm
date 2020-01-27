@@ -1,7 +1,6 @@
 // $(document).ready(function() {
 window.onload = function() {
   $.get("/api/tweets", function(tweets) {
-    console.log(tweets);
     for (let i = 0; i < tweets[0].length; i++) {
       $("#tweets").append(`
   <div class="container">

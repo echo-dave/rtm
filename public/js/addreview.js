@@ -10,10 +10,10 @@ $("#newReview").on("submit", function(e) {
   //put form into a new FormData object
   form = new FormData(form);
   form.append("TrailId", $("#title").attr("data-id"));
-
-  for (var [key, value] of form.entries()) {
-    console.log(key, value);
-  }
+  //log form data
+  // for (var [key, value] of form.entries()) {
+  //   console.log(key, value);
+  // }
 
   $.ajax({
     url: "/api/review/new",
@@ -22,13 +22,11 @@ $("#newReview").on("submit", function(e) {
     contentType: false,
     type: "POST",
     error: function(req, status, err) {
-      console.log(status);
       if (err == "Unauthorized") {
         uError();
       }
     }
   }).then(function(res) {
-    console.log(res);
     // window.location.href = res.resourceURL;
     $("#newReview").hide();
     location.reload(true);
