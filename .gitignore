@@ -3,6 +3,9 @@ public/upload/*
 
 .DS_Store
 
+# affinity source files
+*.afdesign
+
 # Logs
 logs
 *.log
