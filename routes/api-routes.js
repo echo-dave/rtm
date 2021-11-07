@@ -37,6 +37,7 @@ module.exports = function(app) {
     console.log(req.params.search);
 
     db.Trail.findAll({
+      attributes: ["name", "city", "state", "description", "address"],
       where: {
         [op.or]: {
           name: {
@@ -47,11 +48,11 @@ module.exports = function(app) {
           },
           state: req.params.search
         }
-      }
+      },
+      raw: true,
     })
       .then(function(trailSearch) {
         console.log(trailSearch);
-
         res.render("search", { data: trailSearch });
 
         // res.json(trail);
@@ -249,7 +250,7 @@ module.exports = function(app) {
             { model: db.User, attributes: ["name"] },
             { model: db.Media, attribues: ["url"] }
           ]
-        }
+        }, 
       ]
     }).then(function(trailData) {
       // console.log(trailData.toJSON());
